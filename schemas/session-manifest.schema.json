@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "session-manifest.schema.json",
+  "title": "Phase 2 private session manifest",
+  "type": "object",
+  "required": ["manifest_version", "session_id", "mode", "protocol", "status", "artefacts", "privacy"],
+  "properties": {
+    "manifest_version": {"type": "string"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "mode": {"const": "phase-2-shadow"},
+    "protocol": {
+      "type": "object",
+      "required": ["stable", "experimental", "profile"],
+      "properties": {
+        "stable": {"const": "3.5"},
+        "experimental": {"const": "raw-material-processing-v0.1"},
+        "profile": {"const": "3.6-draft-shadow-mode"}
+      },
+      "additionalProperties": false
+    },
+    "status": {"enum": ["initialized", "night-open", "night-finalized", "morning-complete", "candidate-generated", "gold-ready", "comparison-complete", "blocked"]},
+    "artefacts": {
+      "type": "object",
+      "required": ["source_archive", "topic_evidence_packets", "checkpoints", "learning_signals", "candidate_ledgers", "pilot_bundles", "comparison_reports", "calibration_reports", "state_transitions"],
+      "properties": {
+        "source_archive": {"type": "string"},
+        "topic_evidence_packets": {"type": "string"},
+        "checkpoints": {"type": "string"},
+        "learning_signals": {"type": "string"},
+        "candidate_ledgers": {"type": "string"},
+        "pilot_bundles": {"type": "string"},
+        "comparison_reports": {"type": "string"},
+        "calibration_reports": {"type": "string"},
+        "state_transitions": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

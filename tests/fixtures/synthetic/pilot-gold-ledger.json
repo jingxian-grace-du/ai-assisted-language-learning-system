@@ -1,0 +1,27 @@
+{
+  "ledger_id": "LEDGER-SYN-PILOT-GOLD-001",
+  "session_id": "EOD-SYN-SESSION-001",
+  "ledger_kind": "manual-gold",
+  "specification": "raw-material-processing-v0.1",
+  "candidates": [
+    {
+      "candidate_id": "CAND-SYN-PILOT-GOLD-001",
+      "target_key": "TARGET-SYN-PILOT-001",
+      "topic_id": "TOPIC-SYN-001",
+      "signal_ids": ["SIGNAL-SYN-001"],
+      "learning_function": "lexical",
+      "note_type": "vocabulary",
+      "decision": "selected",
+      "decision_reasons": ["SYNTHETIC-MANUAL-SELECTION"],
+      "confidence": "manual",
+      "source_span_ids": ["SPAN-SYN-001"],
+      "boundary_key": "BOUNDARY-SYN-PILOT-001",
+      "semantic_fidelity": "pass"
+    }
+  ],
+  "privacy": {
+    "classification": "synthetic",
+    "repository_allowed": true,
+    "retention_policy": "permanent-test-fixture"
+  }
+}

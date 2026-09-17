@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "topic-evidence-packet.schema.json",
+  "title": "Topic Evidence Packet",
+  "type": "object",
+  "required": ["packet_id", "version", "session_id", "topic_id", "source_span_ids", "signal_ids", "checkpoint_id", "status", "privacy"],
+  "properties": {
+    "packet_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "version": {"type": "integer", "minimum": 1},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "topic_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "source_span_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "excluded_adjacent_span_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "signal_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "reasoning_candidate_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "guidance_candidate_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "checkpoint_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "unresolved_conflict_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "status": {"enum": ["open", "complete", "blocked", "superseded"]},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

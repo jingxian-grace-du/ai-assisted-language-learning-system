@@ -1,0 +1,55 @@
+{
+  "ledger_id": "LEDGER-SYN-GOLD-001",
+  "session_id": "EOD-SYN-SESSION-001",
+  "ledger_kind": "manual-gold",
+  "specification": "raw-material-processing-v0.1",
+  "candidates": [
+    {
+      "candidate_id": "CAND-SYN-G001",
+      "target_key": "TARGET-SYN-001",
+      "topic_id": "TOPIC-SYN-001",
+      "signal_ids": ["SIGNAL-SYN-001"],
+      "learning_function": "lexical",
+      "note_type": "vocabulary",
+      "decision": "selected",
+      "decision_reasons": ["SYNTHETIC-MANUAL-SELECTION"],
+      "confidence": "manual",
+      "source_span_ids": ["SPAN-SYN-001"],
+      "boundary_key": "BOUNDARY-SYN-001",
+      "semantic_fidelity": "pass"
+    },
+    {
+      "candidate_id": "CAND-SYN-G002",
+      "target_key": "TARGET-SYN-002",
+      "topic_id": "TOPIC-SYN-001",
+      "signal_ids": ["SIGNAL-SYN-002"],
+      "learning_function": "complete-expression",
+      "note_type": "context-cloze",
+      "decision": "selected",
+      "decision_reasons": ["SYNTHETIC-MANUAL-SELECTION"],
+      "confidence": "manual",
+      "source_span_ids": ["SPAN-SYN-002"],
+      "boundary_key": "BOUNDARY-SYN-002B",
+      "semantic_fidelity": "pass"
+    },
+    {
+      "candidate_id": "CAND-SYN-G004",
+      "target_key": "TARGET-SYN-004",
+      "topic_id": "TOPIC-SYN-002",
+      "signal_ids": ["SIGNAL-SYN-004"],
+      "learning_function": "reasoning-unit",
+      "note_type": "topic-retell",
+      "decision": "selected",
+      "decision_reasons": ["SYNTHETIC-MANUAL-SELECTION"],
+      "confidence": "manual",
+      "source_span_ids": ["SPAN-SYN-004"],
+      "boundary_key": "BOUNDARY-SYN-004",
+      "semantic_fidelity": "pass"
+    }
+  ],
+  "privacy": {
+    "classification": "synthetic",
+    "repository_allowed": true,
+    "retention_policy": "permanent-test-fixture"
+  }
+}

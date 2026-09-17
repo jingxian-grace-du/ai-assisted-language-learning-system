@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "import-reconciliation.schema.json",
+  "title": "Anki import reconciliation",
+  "type": "object",
+  "required": ["reconciliation_id", "canonical_export_id", "status", "note_type_counts", "deck_counts", "checks", "evaluated_at", "privacy"],
+  "properties": {
+    "reconciliation_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "canonical_export_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "status": {"enum": ["pass", "fail", "blocked"]},
+    "note_type_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "deck_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "checks": {
+      "type": "object",
+      "required": ["field_identity", "tag_compliance", "html_preserved", "no_parent_assignment"],
+      "properties": {
+        "field_identity": {"type": "boolean"},
+        "tag_compliance": {"type": "boolean"},
+        "html_preserved": {"type": "boolean"},
+        "no_parent_assignment": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "evaluated_at": {"$ref": "common.schema.json#/$defs/iso_datetime"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

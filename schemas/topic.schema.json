@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "topic.schema.json",
+  "title": "Reconstructed topic",
+  "type": "object",
+  "required": ["topic_id", "session_id", "source_span_ids", "boundary_confidence", "status", "privacy"],
+  "properties": {
+    "topic_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "source_span_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/stable_id"}
+    },
+    "title": {"type": "string"},
+    "boundary_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "boundary_evidence": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["candidate", "confirmed", "needs-review", "not-a-topic", "superseded"]},
+    "checkpoint_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

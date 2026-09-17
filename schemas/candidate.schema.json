@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "candidate.schema.json",
+  "title": "Learning-target candidate and selection decision",
+  "type": "object",
+  "required": ["candidate_id", "topic_id", "signal_ids", "target_kind", "scores", "decision", "provenance", "privacy"],
+  "properties": {
+    "candidate_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "topic_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "signal_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/stable_id"}
+    },
+    "target_kind": {"enum": ["lexical", "complete-expression", "reasoning-unit", "guidance"]},
+    "proposed_text": {"type": "string"},
+    "scores": {
+      "type": "object",
+      "required": ["communicative_relevance", "reusability", "mastery_gap", "source_confidence", "review_cost"],
+      "properties": {
+        "communicative_relevance": {"type": "number", "minimum": 0, "maximum": 1},
+        "reusability": {"type": "number", "minimum": 0, "maximum": 1},
+        "mastery_gap": {"type": "number", "minimum": 0, "maximum": 1},
+        "source_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "review_cost": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "decision": {"enum": ["selected", "suggested-for-review", "rejected", "unresolved-conflict"]},
+    "decision_reasons": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "provenance": {"$ref": "common.schema.json#/$defs/provenance"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

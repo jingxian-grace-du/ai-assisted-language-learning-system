@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source-session.schema.json",
+  "title": "Private source session",
+  "type": "object",
+  "required": ["session_id", "started_at", "status", "speakers", "privacy"],
+  "properties": {
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "started_at": {"$ref": "common.schema.json#/$defs/iso_datetime"},
+    "ended_at": {"$ref": "common.schema.json#/$defs/iso_datetime"},
+    "status": {"enum": ["open", "closed", "superseded"]},
+    "speakers": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"enum": ["learner", "assistant"]}
+    },
+    "external_content_uri": {
+      "type": "string",
+      "description": "Repository-external location; raw content is never embedded in public metadata."
+    },
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

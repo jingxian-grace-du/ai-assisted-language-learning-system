@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "protocol-delta.schema.json",
+  "title": "Post-cycle protocol delta decision",
+  "type": "object",
+  "required": ["delta_id", "classification", "affected_requirement_ids", "same_class_scan_status", "decision", "evidence_reference"],
+  "properties": {
+    "delta_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "classification": {"enum": ["existing-rule-execution-failure", "existing-rule-insufficient-enforcement", "missing-generalisable-rule", "one-off-preference", "technical-operational-issue"]},
+    "affected_requirement_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^EOD-[A-Z]+-[0-9]{3}$"}},
+    "same_class_scan_status": {"enum": ["complete", "incomplete", "not-applicable"]},
+    "decision": {"enum": ["no-protocol-change", "strengthen-enforcement", "add-requirement", "defer", "reject"]},
+    "proposed_destination": {"type": "string"},
+    "evidence_reference": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

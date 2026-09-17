@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "calibration-report.schema.json",
+  "title": "Phase 2 calibration report",
+  "type": "object",
+  "required": ["report_id", "session_id", "comparison_id", "difference_counts", "proposed_delta_ids", "next_cycle_required", "privacy"],
+  "properties": {
+    "report_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "comparison_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "difference_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "proposed_delta_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+    "next_cycle_required": {"type": "boolean"},
+    "promotion_blockers": {"type": "array", "items": {"type": "string"}},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

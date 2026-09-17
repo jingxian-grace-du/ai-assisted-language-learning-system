@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gold-comparison.schema.json",
+  "title": "Phase 2 gold-standard comparison",
+  "type": "object",
+  "required": ["comparison_id", "session_id", "prediction_ledger_id", "gold_ledger_id", "outcomes", "metrics", "privacy"],
+  "properties": {
+    "comparison_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "prediction_ledger_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "gold_ledger_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target_key", "outcome", "error_codes"],
+        "properties": {
+          "target_key": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "outcome": {"enum": ["true-positive", "false-positive", "false-negative", "partial-target", "semantic-drift", "wrong-function", "wrong-note-type", "duplicate-burden", "topic-boundary-error", "manual-gold-source-conflict", "unresolved-ambiguity"]},
+          "prediction_candidate_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "gold_candidate_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "error_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^RM-[A-Z0-9-]+$"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["true_positive", "false_positive", "false_negative", "precision", "recall"],
+      "properties": {
+        "true_positive": {"type": "integer", "minimum": 0},
+        "false_positive": {"type": "integer", "minimum": 0},
+        "false_negative": {"type": "integer", "minimum": 0},
+        "precision": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "recall": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

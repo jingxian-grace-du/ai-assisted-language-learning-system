@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "learning-signal.schema.json",
+  "title": "Observed learning signal",
+  "type": "object",
+  "required": ["signal_id", "topic_id", "source_span_ids", "signal_type", "confidence", "privacy"],
+  "properties": {
+    "signal_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "topic_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "source_span_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/stable_id"}
+    },
+    "signal_type": {
+      "enum": [
+        "unknown-concept-description", "explicit-wording-question", "hesitation",
+        "self-correction", "inaccurate-substitution", "unnatural-production",
+        "morning-recall-failure", "accepted-expression", "reused-expression",
+        "explicit-retention-request", "manual-mark", "other"
+      ]
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "evidence_note": {"type": "string"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

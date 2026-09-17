@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "notebook-unit.schema.json",
+  "title": "Structured notebook unit",
+  "type": "object",
+  "required": ["unit_id", "candidate_ids", "note_type", "status", "provenance", "privacy"],
+  "properties": {
+    "unit_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "candidate_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/stable_id"}
+    },
+    "note_type": {"enum": ["context-cloze", "topic-retell", "vocabulary", "guidance"]},
+    "canonical_english": {"type": "string"},
+    "prompt": {"type": "string"},
+    "answer": {"type": "string"},
+    "paired_unit_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "guidance_mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["mapping_id", "blank_index", "answer", "highlight"],
+        "properties": {
+          "mapping_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "blank_index": {"type": "integer", "minimum": 1},
+          "answer": {"type": "string", "minLength": 1},
+          "highlight": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "status": {"enum": ["candidate", "validated", "needs-review", "rejected", "superseded"]},
+    "provenance": {"$ref": "common.schema.json#/$defs/provenance"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

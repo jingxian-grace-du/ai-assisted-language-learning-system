@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "candidate-ledger.schema.json",
+  "title": "Selected or rejected candidate ledger",
+  "type": "object",
+  "required": ["ledger_id", "session_id", "ledger_kind", "specification", "candidates", "privacy"],
+  "properties": {
+    "ledger_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "ledger_kind": {"enum": ["prediction", "manual-gold", "rejected"]},
+    "specification": {"const": "raw-material-processing-v0.1"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidate_id", "target_key", "topic_id", "signal_ids", "learning_function", "note_type", "decision", "decision_reasons", "confidence", "source_span_ids"],
+        "properties": {
+          "candidate_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "target_key": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "topic_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+          "signal_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+          "learning_function": {"enum": ["lexical", "complete-expression", "reasoning-unit", "guidance"]},
+          "note_type": {"enum": ["context-cloze", "topic-retell", "vocabulary", "guidance", "none"]},
+          "decision": {"enum": ["selected", "suggested-for-review", "rejected", "unresolved-conflict"]},
+          "decision_reasons": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "confidence": {"enum": ["high", "medium", "low", "manual"]},
+          "source_span_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/stable_id"}},
+          "boundary_key": {"type": "string"},
+          "semantic_fidelity": {"enum": ["pass", "fail", "not-evaluated"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

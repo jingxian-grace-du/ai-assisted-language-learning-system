@@ -1,0 +1,606 @@
+{
+  "catalogue_version": "0.1.0",
+  "protocol_baseline": "English Oral Diary Protocol v3.5",
+  "requirements": [
+    {
+      "id": "EOD-SYS-001",
+      "title": "Preserve learner meaning",
+      "level": "must",
+      "stage": "system",
+      "statement": "Corrections and generated learning units must preserve the learner's intended organisation and meaning unless an explicit higher-authority instruction requires a change.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [13, 14, 15, 16, 17, 18, 58]},
+      "verification": {"method": "semantic", "evidence": "Source-to-output fidelity report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SYS-002",
+      "title": "Separate learning stages",
+      "level": "must",
+      "stage": "system",
+      "statement": "Night expression, morning retrieval, and long-term Anki review must remain distinct stages with distinct purposes.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [19, 20, 21, 22, 23, 24]},
+      "verification": {"method": "deterministic", "evidence": "Workflow event sequence"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SYS-003",
+      "title": "Use meaningful context",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Context Cloze and Topic Retell targets must be embedded in complete meaningful context; isolated lexical testing is reserved for justified Vocabulary notes.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [25, 26, 27, 28, 29]},
+      "verification": {"method": "semantic", "evidence": "Card-context suitability report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NGT-001",
+      "title": "Allow uninterrupted free speaking",
+      "level": "must",
+      "stage": "night",
+      "statement": "During free speaking, the assistant must avoid unnecessary interruption and must not force the diary into predefined topics.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [44, 45, 46, 47, 48, 49, 50]},
+      "verification": {"method": "semantic", "evidence": "Night-session interaction audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NGT-002",
+      "title": "Lock immutable topic checkpoints",
+      "level": "must",
+      "stage": "night",
+      "statement": "Each completed substantive topic must have one versioned, stable, immutable Topic Reference Checkpoint; corrections create a new version rather than silently editing locked text.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [59, 60, 61, 62, 71, 72, 73]},
+      "verification": {"method": "deterministic", "evidence": "Checkpoint identity and version ledger"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NGT-003",
+      "title": "Audit all substantive topics",
+      "level": "must",
+      "stage": "night",
+      "statement": "Night finalisation must map the complete conversation and must not finish until every substantive topic has exactly one current valid checkpoint and no substantive span remains unassigned.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [74, 75, 76, 77, 78, 79, 80]},
+      "verification": {"method": "deterministic", "evidence": "Topic map and zero-unassigned-span result"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NGT-004",
+      "title": "Aggregate without rewriting",
+      "level": "must",
+      "stage": "night",
+      "statement": "The Night Reference Record must be assembled from current locked checkpoints in conversation order without changing checkpoint text or formatting except for permitted record metadata and separators.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [81, 82, 83, 84]},
+      "verification": {"method": "deterministic", "evidence": "Checkpoint-to-record byte or structured-content comparison"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-MRN-001",
+      "title": "Do not reveal morning answers",
+      "level": "must",
+      "stage": "morning",
+      "statement": "The initial morning outline must contain retrieval cues without complete corrected sentences or answer text.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [102, 103, 104, 105, 106, 107, 108, 109, 110]},
+      "verification": {"method": "semantic", "evidence": "Answer-leakage audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-MRN-002",
+      "title": "Use retrieval performance as evidence",
+      "level": "should",
+      "stage": "morning",
+      "statement": "Forgotten, hesitant, inaccurate, or passively understood expressions should be treated as strong evidence during later learning-target selection.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [126, 127, 128, 129, 130, 131, 132, 133]},
+      "verification": {"method": "semantic", "evidence": "Retell-to-candidate traceability register"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-MRN-003",
+      "title": "Allow the learner to complete the retell",
+      "level": "must",
+      "stage": "morning",
+      "statement": "The assistant must not interrupt the morning retell unless clarification is necessary and must allow the learner to complete the full reasoning before comparison begins.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [111, 112, 113, 114, 115, 116]},
+      "verification": {"method": "semantic", "evidence": "Morning interaction sequence audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-001",
+      "title": "Respect explicit learner markings",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Explicit learner formatting, manual Cloze edits, and direct instructions must take precedence over inferred learning value.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [143, 144, 145, 146, 147, 148, 149, 150, 153, 154]},
+      "verification": {"method": "deterministic", "evidence": "Authority and mark ledger"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-002",
+      "title": "Use evidence-based predictive marking",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Predicted learning targets must be supported by observed production difficulty, direct wording questions, retrieval failure, or repeated approved preferences; sophistication alone is insufficient.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161]},
+      "verification": {"method": "semantic", "evidence": "Per-candidate evidence record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-003",
+      "title": "Route predictions by confidence",
+      "level": "must",
+      "stage": "selection",
+      "statement": "High-confidence predictions may enter the first review notebook, medium-confidence predictions require confirmation before export, and low-confidence predictions must be omitted until stronger evidence exists.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [173, 174, 175, 176, 177]},
+      "verification": {"method": "deterministic", "evidence": "Candidate confidence and disposition fields"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-004",
+      "title": "Separate content and card calibration",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Content-selection calibration and card-design calibration must be tracked separately, and card-design changes must not silently reopen approved content selection.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [185, 186, 187, 188, 189, 190, 191, 192, 193, 194]},
+      "verification": {"method": "deterministic", "evidence": "Stage-specific change ledger"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-001",
+      "title": "Apply source authority",
+      "level": "must",
+      "stage": "validation",
+      "statement": "Every derived unit must resolve its authority according to the protocol order, and assistant-generated output must not validate itself or override an available authoritative source.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [195, 196, 197]},
+      "verification": {"method": "deterministic", "evidence": "Authority source and source-span fields"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-002",
+      "title": "Preserve source semantics",
+      "level": "must",
+      "stage": "validation",
+      "statement": "Generated notes must preserve actor, event, object, causal relation, chronology, polarity, certainty, qualification, stance, and material factual detail from the highest available authoritative source.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [198, 199, 200]},
+      "verification": {"method": "semantic", "evidence": "Bidirectional source-fidelity result"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-003",
+      "title": "Build mark ledger before cards",
+      "level": "must",
+      "stage": "validation",
+      "statement": "A complete atomic Manual Mark Ledger must be created and frozen before candidate card generation; a retrospective ledger cannot support a coverage pass.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [201, 202, 203, 204, 205, 206]},
+      "verification": {"method": "deterministic", "evidence": "Ledger creation stage, stable IDs, and freeze record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-004",
+      "title": "Count only tested coverage",
+      "level": "must",
+      "stage": "validation",
+      "statement": "A target counts as covered only when it occupies a protocol-approved tested position; visible context, prose, ledgers, explanations, and unapproved candidate lists do not count.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [207]},
+      "verification": {"method": "deterministic", "evidence": "Target-to-card-field coverage register"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-005",
+      "title": "Use controlled coverage states",
+      "level": "must",
+      "stage": "validation",
+      "statement": "Manual targets must use only the protocol-approved coverage states, and exclusion requires an explicit learner decision.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [208, 209]},
+      "verification": {"method": "deterministic", "evidence": "Coverage-state enum and decision provenance"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-006",
+      "title": "Block failed coverage builds",
+      "level": "must",
+      "stage": "validation",
+      "statement": "A final or audit-passed artefact must not be produced unless the deterministic coverage equation holds and all uncovered, unresolved, boundary, incomplete-Guidance, and alignment error counts are zero.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [210, 211, 212, 213]},
+      "verification": {"method": "deterministic", "evidence": "Build-blocking coverage report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-007",
+      "title": "Rescan the whole error class",
+      "level": "must",
+      "stage": "validation",
+      "statement": "When one error is identified, the relevant previous audit becomes invalid and the complete artefact must be scanned again for the same error class before a revision can pass.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [214, 704, 705, 706]},
+      "verification": {"method": "deterministic", "evidence": "Audit invalidation and rescan record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-001",
+      "title": "Preserve paired English identity",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Each Context Cloze and its paired Topic Retell must derive from one canonical English source and remain character-identical after mechanical removal of Cloze markup, subject only to explicitly permitted format differences.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [399, 400, 505, 506, 520, 521, 522, 526, 527, 540, 541]},
+      "verification": {"method": "deterministic", "evidence": "Paired-text identity check"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-002",
+      "title": "Keep Cloze boundaries minimal",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A Cloze deletion must isolate the intended unfamiliar word or meaningful chunk without unnecessarily hiding familiar contextual scaffolding or expanding beyond the confirmed target.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [369, 370, 371, 373, 375, 660, 661, 662, 663, 664, 665, 666]},
+      "verification": {"method": "semantic", "evidence": "Two-way target-boundary result"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-003",
+      "title": "Make Vocabulary independently retrievable",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Every Vocabulary front must independently bound one answer, one tightly bounded interchangeable set, or one explicit distinction without requiring another card.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [276, 277, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431]},
+      "verification": {"method": "semantic", "evidence": "Front-only answerability simulation"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-004",
+      "title": "Align Guidance bidirectionally",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Every Guidance blank must map to exactly one minimal English answer and exact highlight, and every highlight must map back to exactly one corresponding blank with equal count, order, meaning, and boundaries.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [446, 447, 448, 449, 450, 681, 682, 683, 684, 685, 707, 708]},
+      "verification": {"method": "semantic", "evidence": "Forward and reverse Guidance mapping report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-005",
+      "title": "Invalidate linked Guidance changes",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A change to any authoritative source, complete Guidance, answer, highlight, translation, blank range, or rendered underline must invalidate the prior Guidance pass and trigger all linked validations again.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [709, 710, 711, 712, 713, 714]},
+      "verification": {"method": "deterministic", "evidence": "Guidance dependency invalidation record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-006",
+      "title": "Render Guidance blanks as underline only",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A Guidance front must remove the tested Chinese answer completely and display only a continuous underline at the original position without any answer-revealing residue.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [715, 716]},
+      "verification": {"method": "operational", "evidence": "DOCX, exported field, and Anki render audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-008",
+      "title": "Report independent audit states",
+      "level": "must",
+      "stage": "validation",
+      "statement": "Content, manual-mark, card-design, and render audits must be reported independently, and the notebook is complete only when every required state passes.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [213, 721, 722]},
+      "verification": {"method": "deterministic", "evidence": "Gate status manifest"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-ARC-001",
+      "title": "Archive only learner-confirmed masters",
+      "level": "must",
+      "stage": "archive",
+      "statement": "Only a learner-confirmed Final Review Notebook may become the canonical master used to generate Anki exports, and its storage location must be configured outside the repository.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [739, 740, 741, 742, 744]},
+      "verification": {"method": "deterministic", "evidence": "Confirmation record, canonical path policy, and source hash"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-EXP-001",
+      "title": "Export only validated canonical data",
+      "level": "must",
+      "stage": "export",
+      "statement": "Canonical exports must be generated from the confirmed master using the required Note Type fields, encodings, tags, and content validations; temporary import copies must not replace canonical data.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [745, 752, 759, 766, 772, 778, 790, 792, 830, 831, 832, 833]},
+      "verification": {"method": "deterministic", "evidence": "Export manifest and field-level validation report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-IMP-001",
+      "title": "Import into matching existing structures",
+      "level": "must",
+      "stage": "import",
+      "statement": "Each exported Note Type must be imported into its matching existing Note Type and subdeck without assigning notes directly to the parent deck or creating dated decks.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [792, 801, 802, 803, 804, 805]},
+      "verification": {"method": "operational", "evidence": "Import configuration and destination-deck report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-IMP-002",
+      "title": "Reconcile collection state",
+      "level": "must",
+      "stage": "import",
+      "statement": "After import, the system must reconcile imported counts, Note Types, fields, tags, HTML, deck assignments, and parent-deck totals against the canonical export and a read-only collection state when available.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [867, 868, 871, 872]},
+      "verification": {"method": "operational", "evidence": "Database-level import reconciliation report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-PSC-001",
+      "title": "Complete post-cycle learning audit",
+      "level": "must",
+      "stage": "post-cycle",
+      "statement": "The workflow must not be declared complete until material corrections and failures have been classified, same-class scans recorded, and reusable protocol deltas distinguished from execution failures and one-off preferences.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [235]},
+      "verification": {"method": "deterministic", "evidence": "Post-cycle learning and protocol-delta ledger"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-PSC-002",
+      "title": "Audit protocol changes conversation-wide",
+      "level": "must",
+      "stage": "post-cycle",
+      "statement": "A protocol release must account for every requested, approved, rejected, superseded, or materially ambiguous change across the complete relevant conversation and must preserve unrelated provisions.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [217, 218, 219, 220, 221, 222, 223]},
+      "verification": {"method": "deterministic", "evidence": "Conversation change ledger and paragraph-level release comparison"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SYS-004",
+      "title": "Minimise routine human review",
+      "level": "must",
+      "stage": "system",
+      "statement": "The system must resolve objective formatting, search, relationship, count, field, and established-rule questions automatically and must route only genuine material ambiguity and final acceptance to the learner.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [236, 237, 238]},
+      "verification": {"method": "operational", "evidence": "Review-routing report with reason codes"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-005",
+      "title": "Consolidate by meaning and retrieval purpose",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Candidate material must be compared across the complete notebook and consolidated when it expresses substantially the same meaning and retrieval purpose.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [252, 253, 254, 258, 259]},
+      "verification": {"method": "semantic", "evidence": "Cross-note semantic redundancy report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-006",
+      "title": "Distinguish synonyms from related expressions",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Slash alternatives may be combined only when they are interchangeable for the intended meaning and grammatical slot; non-interchangeable related expressions require an explicit distinction or separate retrieval task.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [255, 256, 257, 273, 274]},
+      "verification": {"method": "semantic", "evidence": "Synonym and near-synonym relationship register"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-007",
+      "title": "Prefer minimum coherent card expansion",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Newly approved targets must first be integrated into existing suitable learning units, and a new note is allowed only when it adds unique content or an independent retrieval ability that cannot be integrated without violating another rule.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [278, 279, 280, 281, 282, 283, 284]},
+      "verification": {"method": "deterministic", "evidence": "Card-count change audit and integration-failure reasons"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-SEL-008",
+      "title": "Propagate confirmed targets by meaning",
+      "level": "must",
+      "stage": "selection",
+      "statement": "Confirmed targets must be audited across the approved notebook and propagated only to observed occurrences with the same intended meaning or relevant word-family function, without manufacturing new English content.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [285, 286, 287, 288, 289, 290, 291, 292, 293]},
+      "verification": {"method": "semantic", "evidence": "Confirmed-target occurrence and word-family register"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NBK-001",
+      "title": "Deliver an directly editable review notebook",
+      "level": "must",
+      "stage": "notebook",
+      "statement": "The review notebook must be directly editable and must not require the learner to copy, paste, or reconstruct proposed content in another interface.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [294, 295, 296, 297, 298, 299, 300, 301, 302]},
+      "verification": {"method": "operational", "evidence": "Editable artefact inspection"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NBK-002",
+      "title": "Organise by coherent reasoning units",
+      "level": "must",
+      "stage": "notebook",
+      "statement": "Notebook content must be organised by broad topic and complete reasoning unit while preserving logical order and avoiding sentence-by-sentence card fragmentation.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [303, 304, 305, 306, 307, 308, 309, 310, 311]},
+      "verification": {"method": "semantic", "evidence": "Topic and reasoning-unit organisation audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NBK-003",
+      "title": "Use stable semantic identity before display numbering",
+      "level": "must",
+      "stage": "notebook",
+      "statement": "Learning units must use stable semantic IDs throughout extraction and review, and sequential display card numbers must be assigned only after consolidation, splitting, and deletion are complete.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [312, 313]},
+      "verification": {"method": "deterministic", "evidence": "Stable ID ledger and numbering-stage record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NBK-004",
+      "title": "Apply the marked-content placement hierarchy",
+      "level": "must",
+      "stage": "notebook",
+      "statement": "Marked content must be placed by attempting natural existing Context integration, coherent extension, a new paired reasoning unit, justified Vocabulary, and Guidance in that order, subject to the distinct learning purpose rules.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [326, 327, 328, 329, 330, 331, 332, 333]},
+      "verification": {"method": "deterministic", "evidence": "Per-target placement decision record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-NBK-005",
+      "title": "Treat learner edits as authoritative",
+      "level": "must",
+      "stage": "notebook",
+      "statement": "Direct learner edits to the review notebook become the current authoritative version and must update affected ledgers and invalidate dependent audit results.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344]},
+      "verification": {"method": "deterministic", "evidence": "Edited-source hash, change ledger, and invalidation record"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-007",
+      "title": "Prevent reverse-cue leakage",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Visible synonyms, antonyms, translations, definitions, parallel structures, or predictable contrasts must not reveal a hidden answer without genuine retrieval.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [378, 379, 380, 381, 382]},
+      "verification": {"method": "semantic", "evidence": "Reverse-cue audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-008",
+      "title": "Reserve full-sentence Cloze for confirmed sentence targets",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A whole sentence may be hidden only when the complete sentence is the confirmed target and contextual Cloze testing remains suitable; isolated sentence retrieval otherwise belongs in Vocabulary and does not create a Topic Retell pair.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [383, 384, 385, 386, 387]},
+      "verification": {"method": "semantic", "evidence": "Whole-sentence target and Note Type suitability audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-009",
+      "title": "Use complete Context translations",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A Context Cloze prompt must translate the complete canonical English content without omitting sentences, logical relationships, examples, or material detail.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [388, 389, 390]},
+      "verification": {"method": "semantic", "evidence": "English-to-Chinese completeness and back-translation audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-010",
+      "title": "Select Topic Retell by discourse value",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A dedicated Topic Retell must test a complete discourse or reasoning progression and must not be selected solely because of broad topic, paragraph length, sentence count, or one isolated lexical target.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [458, 459, 460, 461, 462, 471, 472, 473, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498]},
+      "verification": {"method": "semantic", "evidence": "Topic Retell selection rationale"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-011",
+      "title": "Require one paired Topic Retell per Context Cloze",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Every Context Cloze must have exactly one corresponding paired Topic Retell unless that exact pair already exists; Guidance does not create a mandatory pair.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [505, 506, 507, 508, 509, 510]},
+      "verification": {"method": "deterministic", "evidence": "Context-to-Retell cardinality and duplicate check"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-012",
+      "title": "Render revealed answers consistently",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Every revealed Context Cloze answer and Guidance answer highlight must use the shared light-blue, bold, underlined answer style in supported display modes.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [368, 445, 788]},
+      "verification": {"method": "operational", "evidence": "Rendered day-mode and night-mode style audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-013",
+      "title": "Use Cloze numbers according to intended card count",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "Related deletions intended for one card must share a Cloze number, while distinct numbers may be used only when the design intentionally creates separate cards.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [391, 392, 393, 394, 395, 396, 397]},
+      "verification": {"method": "deterministic", "evidence": "Cloze-number to intended-card-count comparison"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-CDS-014",
+      "title": "Keep Topic Retell cues concise and non-revealing",
+      "level": "must",
+      "stage": "card-design",
+      "statement": "A Topic Retell front must provide only a concise Chinese topic or logical cue and must not contain a complete translation or reveal the English wording.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [412, 413, 414, 415, 416, 417]},
+      "verification": {"method": "semantic", "evidence": "Topic Retell answer-leakage and cue-sufficiency audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-EXP-002",
+      "title": "Use fixed broad deck destinations",
+      "level": "must",
+      "stage": "export",
+      "statement": "The four Note Types must map to their matching stable subdecks, while dated or narrowly topical decks and direct assignment to the parent deck are prohibited.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554]},
+      "verification": {"method": "deterministic", "evidence": "Note Type to destination-deck mapping"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-EXP-003",
+      "title": "Keep Topic tags first-level and reusable",
+      "level": "must",
+      "stage": "export",
+      "statement": "Topic tags must contain exactly one approved broad primary category, may use the smallest accurate set of first-level categories, and must not create deeper or card-specific topic hierarchies.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [563, 564, 576, 577, 578, 579, 580, 581, 582, 583, 584]},
+      "verification": {"method": "deterministic", "evidence": "Tokenised Topic-tag depth and vocabulary audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-EXP-004",
+      "title": "Admit Type tags only for independent learning value",
+      "level": "must",
+      "stage": "export",
+      "statement": "A Type tag may exist only when it identifies a stable, reusable, independently reviewable learning dimension not already represented by deck, Note Type, fields, date, Topic, or another Type.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [585, 589, 591, 593, 595, 597, 599, 601, 603]},
+      "verification": {"method": "semantic", "evidence": "Type admission and redundancy audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-EXP-005",
+      "title": "Control Type creation and assignment",
+      "level": "must",
+      "stage": "export",
+      "statement": "Type categories must be created from actual qualifying cards, remain one level deep, normally contain at least two members, and be assigned from the tested objective rather than incidental words.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [605, 607, 609, 611, 613, 615, 617, 619, 621, 623, 624, 625, 631, 632]},
+      "verification": {"method": "deterministic", "evidence": "Type creation, depth, membership, and set audit"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-VAL-009",
+      "title": "Preserve approved unaffected content",
+      "level": "must",
+      "stage": "validation",
+      "statement": "Final quality checks may correct actual language and technical errors but must not introduce unrequested stylistic upgrades, examples, alternatives, or memory targets, and unaffected content must remain unchanged.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735]},
+      "verification": {"method": "deterministic", "evidence": "Authorised-scope document diff"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-EXP-006",
+      "title": "Use canonical field contracts",
+      "level": "must",
+      "stage": "export",
+      "statement": "Each Note Type export must use its protocol-defined field count and order, with paragraph breaks represented as supported HTML and tags stored as non-displayed metadata.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 790, 791]},
+      "verification": {"method": "deterministic", "evidence": "Per-Note-Type export schema validation"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-IMP-003",
+      "title": "Validate first live import behaviour",
+      "level": "must",
+      "stage": "import",
+      "statement": "The first live import must validate rendering, mappings, Cloze behaviour, tags, paired content, Guidance emphasis, deck totals, target consistency, and duplicate behaviour before settings are treated as established.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899]},
+      "verification": {"method": "operational", "evidence": "First-import validation report"},
+      "status": "baselined"
+    },
+    {
+      "id": "EOD-PRV-001",
+      "title": "Keep private content outside the repository",
+      "level": "must",
+      "stage": "privacy",
+      "statement": "Real oral diaries, conversations, notebooks, Anki content, recordings, screenshots, and source-bearing logs must remain outside the public repository and its version history.",
+      "source": {"protocol_version": "3.5", "legacy_paragraphs": [740]},
+      "verification": {"method": "deterministic", "evidence": "Repository privacy scan and configured external data root"},
+      "status": "draft"
+    }
+  ]
+}

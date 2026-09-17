@@ -1,0 +1,28 @@
+{
+  "catalogue_version": "0.1.0",
+  "status": "experimental",
+  "codes": [
+    {"code": "RM-INTAKE-MISSING-SOURCE", "stage": "RM-0", "severity": "block", "meaning": "A required source or source range is unavailable."},
+    {"code": "RM-INTAKE-DERIVED-AS-RAW", "stage": "RM-0", "severity": "block", "meaning": "A derived artefact was presented as the raw source."},
+    {"code": "RM-TOPIC-UNASSIGNED-SPAN", "stage": "RM-1", "severity": "block", "meaning": "A substantive source span has no topic or explicit non-topic disposition."},
+    {"code": "RM-TOPIC-OVERMERGE", "stage": "RM-1", "severity": "review", "meaning": "Distinct substantive topics were merged."},
+    {"code": "RM-TOPIC-OVERSPLIT", "stage": "RM-1", "severity": "review", "meaning": "One coherent topic was split without sufficient evidence."},
+    {"code": "RM-SIGNAL-UNSUPPORTED", "stage": "RM-2", "severity": "review", "meaning": "A learning signal lacks a resolvable source reference."},
+    {"code": "RM-TARGET-FALSE-POSITIVE", "stage": "RM-8", "severity": "calibrate", "meaning": "The system selected a target absent from the approved gold decision."},
+    {"code": "RM-TARGET-FALSE-NEGATIVE", "stage": "RM-8", "severity": "calibrate", "meaning": "The system omitted a target present in the approved gold decision."},
+    {"code": "RM-TARGET-PARTIAL", "stage": "RM-8", "severity": "review", "meaning": "The target identity is correct but its retrieval boundary is incomplete or over-expanded."},
+    {"code": "RM-SEMANTIC-DRIFT", "stage": "RM-5", "severity": "block", "meaning": "Generated content changes the authoritative source meaning."},
+    {"code": "RM-WRONG-FUNCTION", "stage": "RM-8", "severity": "calibrate", "meaning": "The target was selected but assigned the wrong learning function."},
+    {"code": "RM-WRONG-NOTE-TYPE", "stage": "RM-8", "severity": "calibrate", "meaning": "The accepted learning function was mapped to an unsuitable Note Type."},
+    {"code": "RM-DUPLICATE-BURDEN", "stage": "RM-4", "severity": "review", "meaning": "A candidate adds repeated review without independent learning value."},
+    {"code": "RM-UNRESOLVED-AUTHORITY", "stage": "RM-0", "severity": "block", "meaning": "Materially conflicting authoritative sources remain unresolved."},
+    {"code": "RM-EXPERIMENTAL-ANKI-BOUNDARY", "stage": "RM-7", "severity": "block", "meaning": "Experimental output was marked or routed as ready for Anki."},
+    {"code": "RM-PRIVATE-PATH-IN-REPOSITORY", "stage": "RM-0", "severity": "block", "meaning": "Private runtime data resolves inside the public repository."},
+    {"code": "RM-BUNDLE-CONTRACT-INVALID", "stage": "RM-0", "severity": "block", "meaning": "A pilot bundle is structurally incomplete or contains unresolved cross-artefact links."},
+    {"code": "RM-STATE-TRANSITION-INVALID", "stage": "RM-0", "severity": "block", "meaning": "A runtime command attempted to skip or reverse the governed session state sequence."},
+    {"code": "RM-SOURCE-ARCHIVE-INVALID", "stage": "RM-8", "severity": "block", "meaning": "The private multi-chat source archive is incomplete, inconsistent, or belongs to another session."},
+    {"code": "RM-GOLD-HANDOFF-INVALID", "stage": "RM-8", "severity": "block", "meaning": "The Manual-Gold Ledger or Source-Fidelity Report cannot be linked to the frozen session and complete source archive."},
+    {"code": "RM-8-BLOCKED", "stage": "RM-8", "severity": "block", "meaning": "RM-8 cannot run because the validated gold-ready prerequisites are missing."},
+    {"code": "RM-9-BLOCKED", "stage": "RM-9", "severity": "block", "meaning": "RM-9 cannot run because the RM-8 comparison or session prerequisites are missing."}
+  ]
+}

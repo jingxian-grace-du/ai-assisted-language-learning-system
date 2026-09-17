@@ -1,0 +1,66 @@
+# Private learning data: deny common local data directories by default.
+data/
+private/
+diaries/
+conversations/
+notebooks/
+anki/
+exports/
+imports/
+screenshots/
+recordings/
+transcripts/
+logs/
+
+# Known private Phase 2 runtime artefacts, even if copied outside the usual
+# ignored directories. Synthetic fixtures are explicitly re-allowed below.
+**/conversation-source-archive.json
+**/phase2-pilot-bundle-*.json
+**/manual-gold-ledger.json
+**/source-fidelity-report.json
+**/gold-comparison.json
+**/calibration-report.json
+
+# Potentially sensitive generated artefacts.
+*.apkg
+*.anki2
+*.colpkg
+*.docx
+*.pdf
+*.tsv
+*.csv
+*.jsonl
+*.log
+*.m4a
+*.mp3
+*.wav
+*.mp4
+*.mov
+
+# Local configuration and secrets.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Development artefacts.
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+node_modules/
+dist/
+build/
+
+# Explicitly allow future synthetic fixtures under the governed directory.
+!tests/fixtures/synthetic/
+!tests/fixtures/synthetic/**

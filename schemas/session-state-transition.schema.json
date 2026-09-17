@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "session-state-transition.schema.json",
+  "title": "Phase 2 session state transition",
+  "type": "object",
+  "required": ["transition_id", "session_id", "from", "to", "operation", "recorded_at", "privacy"],
+  "properties": {
+    "transition_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "from": {"enum": ["initialized", "night-open", "night-finalized", "morning-complete", "candidate-generated", "comparison-complete", "blocked"]},
+    "to": {"enum": ["night-open", "night-finalized", "morning-complete", "candidate-generated", "comparison-complete", "blocked"]},
+    "operation": {"enum": ["manual-transition", "bundle-import-sync"]},
+    "recorded_at": {"$ref": "common.schema.json#/$defs/iso_datetime"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

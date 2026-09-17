@@ -1,0 +1,45 @@
+{
+  "source_file": "English Oral Diary Protocol v3.5.docx",
+  "source_sha256": "1ba8cc2c3b35c4909973a1771b07b61bb9c779f7d66d18fea0e9d65b00417f90",
+  "source_paragraph_count": 989,
+  "migration_policy": "Preserve normative meaning; remove repository privacy and portability hazards only.",
+  "changes": [
+    {
+      "legacy_paragraph": 397,
+      "type": "non-portable-citation-token-removal",
+      "normative_effect": "none"
+    },
+    {
+      "legacy_paragraph": 555,
+      "type": "non-portable-citation-token-removal",
+      "normative_effect": "none"
+    },
+    {
+      "legacy_paragraph": 703,
+      "type": "non-portable-citation-token-removal",
+      "normative_effect": "none"
+    },
+    {
+      "legacy_paragraph": 740,
+      "type": "private-path-parameterisation",
+      "before": "<legacy-absolute-user-path>/Final Confirmed Notebooks",
+      "after": "${EOD_PRIVATE_DATA_ROOT}/final-confirmed-notebooks",
+      "normative_effect": "none"
+    },
+    {
+      "legacy_paragraph": 751,
+      "type": "non-portable-citation-token-removal",
+      "normative_effect": "none"
+    },
+    {
+      "legacy_paragraph": 789,
+      "type": "non-portable-citation-token-removal",
+      "normative_effect": "none"
+    },
+    {
+      "legacy_paragraph": 791,
+      "type": "non-portable-citation-token-removal",
+      "normative_effect": "none"
+    }
+  ]
+}

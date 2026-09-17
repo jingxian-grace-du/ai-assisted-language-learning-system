@@ -1,0 +1,31 @@
+{
+  "catalogue_version": "0.1.0",
+  "status": "draft",
+  "schemas": [
+    "common.schema.json",
+    "source-session.schema.json",
+    "source-span.schema.json",
+    "topic.schema.json",
+    "learning-signal.schema.json",
+    "candidate.schema.json",
+    "notebook-unit.schema.json",
+    "gate-result.schema.json",
+    "anki-note.schema.json",
+    "transformation.schema.json",
+    "authority-conflict.schema.json",
+    "import-reconciliation.schema.json",
+    "protocol-delta.schema.json",
+    "session-manifest.schema.json",
+    "topic-evidence-packet.schema.json",
+    "candidate-ledger.schema.json",
+    "experimental-notebook-manifest.schema.json",
+    "gold-comparison.schema.json",
+    "calibration-report.schema.json",
+    "source-span-index.schema.json",
+    "private-source-archive.schema.json",
+    "source-fidelity-report.schema.json",
+    "checkpoint-link.schema.json",
+    "session-state-transition.schema.json",
+    "pilot-bundle.schema.json"
+  ]
+}

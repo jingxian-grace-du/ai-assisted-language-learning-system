@@ -1,0 +1,246 @@
+{
+  "bundle_version": "0.1.0",
+  "bundle_id": "BUNDLE-SYN-001",
+  "session_manifest": {
+    "manifest_version": "0.1.0",
+    "session_id": "EOD-SYN-SESSION-001",
+    "mode": "phase-2-shadow",
+    "protocol": {
+      "stable": "3.5",
+      "experimental": "raw-material-processing-v0.1",
+      "profile": "3.6-draft-shadow-mode"
+    },
+    "status": "candidate-generated",
+    "artefacts": {
+      "source_archive": "source",
+      "topic_evidence_packets": "evidence-packets",
+      "checkpoints": "checkpoints",
+      "learning_signals": "signals",
+      "candidate_ledgers": "ledgers",
+      "pilot_bundles": "bundles",
+      "comparison_reports": "comparisons",
+      "calibration_reports": "calibration",
+      "state_transitions": "transitions"
+    },
+    "privacy": {
+      "classification": "synthetic",
+      "repository_allowed": true,
+      "retention_policy": "permanent-test-fixture"
+    }
+  },
+  "source_span_index": {
+    "index_id": "INDEX-SYN-001",
+    "session_id": "EOD-SYN-SESSION-001",
+    "spans": [
+      {
+        "span_id": "SPAN-SYN-001",
+        "order": 1,
+        "speaker": "learner",
+        "substantive": true,
+        "topic_id": "TOPIC-SYN-001"
+      },
+      {
+        "span_id": "SPAN-SYN-002",
+        "order": 2,
+        "speaker": "assistant",
+        "substantive": true,
+        "topic_id": "TOPIC-SYN-001"
+      },
+      {
+        "span_id": "SPAN-SYN-003",
+        "order": 3,
+        "speaker": "system-event",
+        "substantive": false,
+        "non_topic_disposition": "SYNTHETIC-OPERATIONAL-EVENT"
+      }
+    ],
+    "privacy": {
+      "classification": "synthetic",
+      "repository_allowed": true,
+      "retention_policy": "permanent-test-fixture"
+    }
+  },
+  "topic_evidence_packets": [
+    {
+      "packet_id": "PACKET-SYN-001",
+      "version": 1,
+      "session_id": "EOD-SYN-SESSION-001",
+      "topic_id": "TOPIC-SYN-001",
+      "source_span_ids": ["SPAN-SYN-001", "SPAN-SYN-002"],
+      "excluded_adjacent_span_ids": ["SPAN-SYN-003"],
+      "signal_ids": ["SIGNAL-SYN-001"],
+      "reasoning_candidate_ids": [],
+      "guidance_candidate_ids": [],
+      "checkpoint_id": "CHECKPOINT-SYN-001",
+      "unresolved_conflict_ids": [],
+      "confidence": "high",
+      "status": "complete",
+      "privacy": {
+        "classification": "synthetic",
+        "repository_allowed": true,
+        "retention_policy": "permanent-test-fixture"
+      }
+    }
+  ],
+  "checkpoint_register": {
+    "register_id": "CHECKREG-SYN-001",
+    "session_id": "EOD-SYN-SESSION-001",
+    "links": [
+      {
+        "checkpoint_id": "CHECKPOINT-SYN-001",
+        "topic_id": "TOPIC-SYN-001",
+        "packet_id": "PACKET-SYN-001",
+        "source_span_ids": ["SPAN-SYN-001", "SPAN-SYN-002"],
+        "status": "locked"
+      }
+    ],
+    "privacy": {
+      "classification": "synthetic",
+      "repository_allowed": true,
+      "retention_policy": "permanent-test-fixture"
+    }
+  },
+  "learning_signals": [
+    {
+      "signal_id": "SIGNAL-SYN-001",
+      "topic_id": "TOPIC-SYN-001",
+      "source_span_ids": ["SPAN-SYN-001"],
+      "signal_type": "explicit-wording-question",
+      "confidence": 0.9,
+      "evidence_note": "SYNTHETIC-SIGNAL-ONLY",
+      "privacy": {
+        "classification": "synthetic",
+        "repository_allowed": true,
+        "retention_policy": "permanent-test-fixture"
+      }
+    }
+  ],
+  "candidate_ledgers": [
+    {
+      "ledger_id": "LEDGER-SYN-PILOT-PRED-001",
+      "session_id": "EOD-SYN-SESSION-001",
+      "ledger_kind": "prediction",
+      "specification": "raw-material-processing-v0.1",
+      "candidates": [
+        {
+          "candidate_id": "CAND-SYN-PILOT-001",
+          "target_key": "TARGET-SYN-PILOT-001",
+          "topic_id": "TOPIC-SYN-001",
+          "signal_ids": ["SIGNAL-SYN-001"],
+          "learning_function": "lexical",
+          "note_type": "vocabulary",
+          "decision": "selected",
+          "decision_reasons": ["SYNTHETIC-DIRECT-SIGNAL"],
+          "confidence": "high",
+          "source_span_ids": ["SPAN-SYN-001"],
+          "boundary_key": "BOUNDARY-SYN-PILOT-001",
+          "semantic_fidelity": "pass"
+        }
+      ],
+      "privacy": {
+        "classification": "synthetic",
+        "repository_allowed": true,
+        "retention_policy": "permanent-test-fixture"
+      }
+    },
+    {
+      "ledger_id": "LEDGER-SYN-PILOT-REJ-001",
+      "session_id": "EOD-SYN-SESSION-001",
+      "ledger_kind": "rejected",
+      "specification": "raw-material-processing-v0.1",
+      "candidates": [],
+      "privacy": {
+        "classification": "synthetic",
+        "repository_allowed": true,
+        "retention_policy": "permanent-test-fixture"
+      }
+    }
+  ],
+  "experimental_notebook_manifest": {
+    "manifest_id": "NOTEBOOK-SYN-PILOT-001",
+    "session_id": "EOD-SYN-SESSION-001",
+    "label": "EXPERIMENTAL CANDIDATE — NOT APPROVED FOR ANKI",
+    "specification": "raw-material-processing-v0.1",
+    "unit_ids": ["UNIT-SYN-PILOT-001"],
+    "ledger_ids": ["LEDGER-SYN-PILOT-PRED-001", "LEDGER-SYN-PILOT-REJ-001"],
+    "gate_result_ids": ["RESULT-SYN-RM-0", "RESULT-SYN-RM-1", "RESULT-SYN-RM-2", "RESULT-SYN-RM-3", "RESULT-SYN-RM-4", "RESULT-SYN-RM-5", "RESULT-SYN-RM-6", "RESULT-SYN-RM-7"],
+    "unresolved_conflict_ids": [],
+    "anki_ready": false,
+    "privacy": {
+      "classification": "synthetic",
+      "repository_allowed": true,
+      "retention_policy": "permanent-test-fixture"
+    }
+  },
+  "gate_results": [
+    {
+      "result_id": "RESULT-SYN-RM-0",
+      "gate_id": "RM-0",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-000", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-1",
+      "gate_id": "RM-1",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-001", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-2",
+      "gate_id": "RM-2",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-002", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-3",
+      "gate_id": "RM-3",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-003", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-4",
+      "gate_id": "RM-4",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-004", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-5",
+      "gate_id": "RM-5",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-005", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-6",
+      "gate_id": "RM-6",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-006", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    },
+    {
+      "result_id": "RESULT-SYN-RM-7",
+      "gate_id": "RM-7",
+      "subject_ids": ["EOD-SYN-SESSION-001"],
+      "status": "pass",
+      "checks": [{"requirement_id": "EOD-RM-007", "status": "pass", "evidence_reference": "SYNTHETIC-STRUCTURAL-EVIDENCE"}],
+      "evaluated_at": "2026-01-01T00:00:00Z"
+    }
+  ],
+  "privacy": {
+    "classification": "synthetic",
+    "repository_allowed": true,
+    "retention_policy": "permanent-test-fixture"
+  }
+}

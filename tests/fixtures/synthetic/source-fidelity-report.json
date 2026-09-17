@@ -1,0 +1,23 @@
+{
+  "report_id": "FIDELITY-SYN-001",
+  "session_id": "EOD-SYN-SESSION-001",
+  "source_archive_id": "ARCHIVE-SYN-001",
+  "manual_notebook_id": "NOTEBOOK-SYN-MANUAL-001",
+  "status": "pass",
+  "checks": [
+    {
+      "check_id": "FIDELITYCHECK-SYN-001",
+      "gold_candidate_id": "CAND-SYN-PILOT-GOLD-001",
+      "source_span_ids": ["SPAN-SYN-001"],
+      "status": "pass",
+      "evidence_reference": "SYNTHETIC-SOURCE-VERIFIED"
+    }
+  ],
+  "conflict_ids": [],
+  "reviewed_at": "2026-01-01T00:00:00Z",
+  "privacy": {
+    "classification": "synthetic",
+    "repository_allowed": true,
+    "retention_policy": "permanent-test-fixture"
+  }
+}

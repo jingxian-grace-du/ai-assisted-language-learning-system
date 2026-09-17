@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source-span.schema.json",
+  "title": "Private source span",
+  "type": "object",
+  "required": ["span_id", "session_id", "speaker", "range", "content", "privacy"],
+  "properties": {
+    "span_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "session_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "speaker": {"enum": ["learner", "assistant", "system-event"]},
+    "range": {"$ref": "common.schema.json#/$defs/source_range"},
+    "content": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Private runtime data; prohibited from the public repository."
+    },
+    "supersedes_span_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "privacy": {"$ref": "common.schema.json#/$defs/privacy"}
+  },
+  "additionalProperties": false
+}

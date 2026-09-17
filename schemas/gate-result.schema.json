@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gate-result.schema.json",
+  "title": "Pipeline gate result",
+  "type": "object",
+  "required": ["result_id", "gate_id", "subject_ids", "status", "checks", "evaluated_at"],
+  "properties": {
+    "result_id": {"$ref": "common.schema.json#/$defs/stable_id"},
+    "gate_id": {"type": "string", "pattern": "^(?:GATE-[0-9]+(?:-[A-Z0-9]+)*|RM-[0-9])$"},
+    "subject_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/stable_id"}
+    },
+    "status": {"enum": ["pass", "fail", "blocked", "not-run", "invalidated"]},
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["requirement_id", "status", "evidence_reference"],
+        "properties": {
+          "requirement_id": {"type": "string", "pattern": "^EOD-[A-Z]+-[0-9]{3}$"},
+          "status": {"enum": ["pass", "fail", "blocked", "not-applicable"]},
+          "evidence_reference": {"type": "string", "minLength": 1},
+          "failure_code": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "invalidates_result_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/stable_id"}
+    },
+    "evaluated_at": {"$ref": "common.schema.json#/$defs/iso_datetime"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,48 @@
+{
+  "archive_id": "ARCHIVE-SYN-001",
+  "session_id": "EOD-SYN-SESSION-001",
+  "segments": [
+    {
+      "segment_id": "SEGMENT-SYN-NIGHT-001",
+      "source_chat_id": "synthetic-night-chat",
+      "sequence": 1,
+      "role": "night-diary",
+      "authoritative": true,
+      "complete": true,
+      "messages": [
+        {
+          "message_id": "synthetic-night-message-001",
+          "order": 1,
+          "speaker": "learner",
+          "content": "SYNTHETIC NIGHT SOURCE CONTENT"
+        }
+      ]
+    },
+    {
+      "segment_id": "SEGMENT-SYN-MORNING-001",
+      "source_chat_id": "synthetic-morning-chat",
+      "sequence": 2,
+      "role": "morning-review",
+      "authoritative": true,
+      "complete": true,
+      "messages": [
+        {
+          "message_id": "synthetic-morning-message-001",
+          "order": 1,
+          "speaker": "learner",
+          "content": "SYNTHETIC MORNING SOURCE CONTENT"
+        }
+      ]
+    }
+  ],
+  "completeness": {
+    "status": "complete",
+    "checked_segment_ids": ["SEGMENT-SYN-NIGHT-001", "SEGMENT-SYN-MORNING-001"],
+    "missing_ranges": []
+  },
+  "privacy": {
+    "classification": "synthetic",
+    "repository_allowed": true,
+    "retention_policy": "permanent-test-fixture"
+  }
+}
