@@ -41,6 +41,73 @@ independently prepared manual-gold reference.
 - iterative improvement based on observed failure modes rather than unsupported
   accuracy claims.
 
+## System architecture
+
+```mermaid
+flowchart LR
+    subgraph PRIVATE["Private learner workspace · never committed"]
+        direction TB
+        DIARY["English oral-diary<br/>conversations"]
+        ARCHIVE["Complete private<br/>source archive"]
+        MANUAL["Independent<br/>manual notebook"]
+        STABLE["Learner-approved<br/>stable notebook"]
+        ANKI["Reconciled<br/>Anki collection"]
+    end
+
+    subgraph RUNTIME["Governed Phase 2 runtime"]
+        direction TB
+        CHATGPT["ChatGPT diary runtime<br/>Experimental Candidate + Pilot Bundle<br/>RM-0 to RM-7 frozen"]
+        CODEX["Codex calibration and control<br/>source-fidelity review + Manual Gold"]
+        RM8["RM-8<br/>source-linked comparison"]
+        RM9["RM-9<br/>calibration report"]
+        REVIEW{"Human approval<br/>and quality gates"}
+        RECON["Export, import and<br/>rendered-card reconciliation"]
+    end
+
+    subgraph PUBLIC["Public repository · privacy-safe engineering"]
+        direction TB
+        REQUIREMENTS["60 stable<br/>requirements"]
+        SCHEMAS["25 JSON<br/>Schemas"]
+        TOOLING["Python CLI,<br/>validators and gates"]
+        TESTS["16 standard-library<br/>tests"]
+        DELTA["Privacy-safe<br/>protocol delta"]
+    end
+
+    DIARY --> CHATGPT
+    DIARY --> ARCHIVE
+    CHATGPT -->|frozen pilot bundle| CODEX
+    ARCHIVE --> CODEX
+    MANUAL --> CODEX
+    CODEX --> RM8 --> RM9 --> REVIEW
+    REVIEW -->|approved output only| STABLE
+    STABLE --> RECON --> ANKI
+
+    REQUIREMENTS -. governs .-> TOOLING
+    SCHEMAS -. constrains .-> TOOLING
+    TESTS -. verifies .-> TOOLING
+    TOOLING -. supports .-> CHATGPT
+    TOOLING -. supports .-> CODEX
+    RM9 -->|generalisable findings only| DELTA
+    DELTA -. updates .-> REQUIREMENTS
+
+    classDef private fill:#fff4df,stroke:#9a6700,color:#3d2d00;
+    classDef runtime fill:#e8f1ff,stroke:#3167a5,color:#15395f;
+    classDef public fill:#e8f7ef,stroke:#2f7d58,color:#17432f;
+    classDef gate fill:#f7e8f3,stroke:#8a4775,color:#502642;
+
+    class DIARY,ARCHIVE,MANUAL,STABLE,ANKI private;
+    class CHATGPT,CODEX,RM8,RM9,RECON runtime;
+    class REQUIREMENTS,SCHEMAS,TOOLING,TESTS,DELTA public;
+    class REVIEW gate;
+```
+
+Solid arrows show the private artefact flow. Dotted arrows show how the public
+requirements, schemas, tests, and tooling govern that flow without receiving
+private learner content. Only generalisable, non-reconstructive findings may
+return to the public protocol. See the [system overview](docs/system-overview.md)
+and [privacy boundary](docs/privacy-and-data-boundaries.md) for the detailed
+design.
+
 ## Verify the public foundation
 
 The public repository uses synthetic fixtures and contains no private diary
