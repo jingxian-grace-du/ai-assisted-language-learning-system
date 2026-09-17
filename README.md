@@ -107,4 +107,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before adding files.
 
 ## Licence
 
-No licence has been selected yet. Until one is added, the repository should not be treated as granting reuse rights.
+Copyright 2026 Jingxian (Grace) Du.
+
+Licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for
+attribution information.

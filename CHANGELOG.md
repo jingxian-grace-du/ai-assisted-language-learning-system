@@ -40,5 +40,9 @@ calibration design remains experimental.
 - semantic topic reconstruction and learning-target selection still require
   governed human review;
 - evidence comes from one private full-cycle pilot and is insufficient for
-  production thresholds;
-- no software licence has been selected yet.
+  production thresholds.
+
+### Licence
+
+- released under the Apache License 2.0;
+- copyright 2026 Jingxian (Grace) Du.
