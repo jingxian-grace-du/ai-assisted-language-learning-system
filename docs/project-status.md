@@ -39,13 +39,16 @@ retains 360 clauses as original non-normative context, confirms 6 additional
 clauses as non-normative, and moves 88 clauses into reviewed operational
 profiles. Normative and operational backlogs are both zero.
 
-## Not yet included
+## Current limitations
 
-- production semantic pipeline implementation;
-- production content validators and exporters;
-- Anki integration;
-- a software licence;
-- a remote GitHub repository.
+- semantic target generation and topic-boundary adjudication are not yet
+  deterministic production automation;
+- automatic target selection and direct Experimental Candidate import into Anki
+  remain blocked;
+- the first private full-cycle pilot is calibration evidence only and does not
+  justify reduced human review;
+- further independent Shadow Mode cycles are required before any production
+  threshold or autonomy claim is considered.
 
 ## Phase 2 entry work
 

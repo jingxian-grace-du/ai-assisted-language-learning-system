@@ -1,11 +1,65 @@
 # English Oral Diary
 
+## A Privacy-First AI-Assisted Language Learning System
+
+English Oral Diary is an experimental, privacy-first system for converting
+selected everyday English reflections into traceable learning targets,
+structured notebooks, and governed Anki review material. It combines a
+human-in-the-loop learning protocol with schema-defined data contracts, Python
+validation tooling, explicit state transitions, and calibration against an
+independently prepared manual-gold reference.
+
 > **Release status: v0.1.0-alpha.** This repository is an experimental protocol,
 > private-calibration architecture, and structural pilot runtime. It is not a
 > production automation system and does not authorise direct import of an
 > Experimental Candidate into Anki.
 
-English Oral Diary is a long-term learning system for turning English into a tool for everyday reflection, communication, and thought.
+## Project at a glance
+
+- **Problem:** generic study material often misses the language a learner
+  actually needs for real communication.
+- **Approach:** use private oral diaries as source material, preserve provenance
+  through a governed transformation pipeline, and route ambiguity to human
+  review rather than hiding it behind automatic output.
+- **Public engineering evidence:** 60 stable requirements, 25 JSON Schemas, a
+  Python structural CLI, privacy and linkage validators, calibration reports,
+  and 16 passing standard-library tests.
+- **Pilot evidence:** one private end-to-end Shadow Mode cycle completed through
+  manual-gold comparison, reviewed notebook finalisation, Anki reconciliation,
+  and learner review. Only non-reconstructive aggregate findings are public.
+- **Current boundary:** semantic topic reconstruction and learning-target
+  selection still require governed review; production autonomy is not claimed.
+
+## What this project demonstrates
+
+- translating an ambiguous human learning process into explicit requirements,
+  data contracts, state transitions, and quality gates;
+- privacy-by-design separation between public code and private learner data;
+- source-to-output traceability and structured exception handling;
+- human-in-the-loop evaluation using frozen predictions, manual-gold comparison,
+  error classes, and calibration reports;
+- iterative improvement based on observed failure modes rather than unsupported
+  accuracy claims.
+
+## Verify the public foundation
+
+The public repository uses synthetic fixtures and contains no private diary
+content. The structural test suite can be run with:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The Phase 2 command-line surface can be inspected with:
+
+```bash
+python pipeline/eod.py --help
+```
+
+## Learning purpose
+
+English Oral Diary is also a long-term learning system for turning English into
+a tool for everyday reflection, communication, and thought.
 
 It is designed for learners who already have a working foundation in English but struggle to use it naturally in daily life. It is not an exam-preparation course, a vocabulary-drilling programme, or a promise of rapid improvement. Its premise is that durable speaking ability grows through repeated use, personally meaningful expression, careful feedback, and long-term memory practice.
 
