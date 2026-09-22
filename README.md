@@ -1,8 +1,10 @@
-# English Oral Diary
+# AI-Assisted Language Learning System
+
 
 ## A Privacy-First AI-Assisted Language Learning System
 
-English Oral Diary is an experimental, privacy-first system for converting
+
+The AI-Assisted Language Learning System is an experimental, privacy-first system for converting
 selected everyday English reflections into traceable learning targets,
 structured notebooks, and governed Anki review material. It combines a
 human-in-the-loop learning protocol with schema-defined data contracts, Python
