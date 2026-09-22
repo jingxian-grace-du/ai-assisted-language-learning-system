@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-Assisted Language Learning System | Grace Du</title>
+  <meta name="description" content="A privacy-first, human-in-the-loop system that turns selected English reflections into traceable learning targets and governed Anki review material.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI-Assisted Language Learning System">
+  <meta property="og:description" content="Privacy-first AI workflow with explicit requirements, schema-defined data contracts, traceable state transitions and calibrated human review.">
+  <meta property="og:url" content="https://jingxian-grace-du.github.io/ai-assisted-language-learning-system/">
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/jingxian-grace-du/ai-assisted-language-learning-system">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://jingxian-grace-du.github.io/ai-assisted-language-learning-system/">
+  <style>
+    :root {
+      --ink: #142621;
+      --muted: #566963;
+      --paper: #f7f4ed;
+      --card: rgba(255, 255, 255, .78);
+      --line: rgba(20, 38, 33, .13);
+      --green: #1d6a55;
+      --mint: #d9eee5;
+      --gold: #cf9c4a;
+      --blue: #3d6c8e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 0%, rgba(207, 156, 74, .18), transparent 34rem),
+        radial-gradient(circle at 5% 22%, rgba(29, 106, 85, .13), transparent 30rem),
+        var(--paper);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+    .brand { font-size: .78rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .nav-link { color: var(--muted); font-weight: 650; text-decoration: none; }
+    .hero { display: grid; grid-template-columns: 1.25fr .75fr; gap: 64px; align-items: center; padding: 72px 0 90px; }
+    .eyebrow { color: var(--green); font-size: .78rem; font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 16px 0 22px; font: 700 clamp(3rem, 7vw, 6.3rem)/.96 Georgia, serif; letter-spacing: -.055em; }
+    .lead { max-width: 720px; margin: 0; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.35rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; gap: 9px; padding: 13px 18px; border: 1px solid var(--ink); border-radius: 999px; font-weight: 760; text-decoration: none; }
+    .button.primary { color: white; background: var(--ink); }
+    .button.secondary { background: rgba(255,255,255,.5); }
+    .status { padding: 28px; border: 1px solid var(--line); border-radius: 28px; background: var(--card); box-shadow: 0 22px 70px rgba(26, 49, 42, .09); }
+    .status .label { color: var(--green); font-size: .78rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .status h2 { margin: 12px 0 8px; font: 650 2rem/1.1 Georgia, serif; }
+    .status p { margin: 0; color: var(--muted); }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .metric { padding: 30px 20px; border-right: 1px solid var(--line); }
+    .metric:first-child { padding-left: 0; }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; font: 700 2.4rem/1 Georgia, serif; }
+    .metric span { display: block; margin-top: 8px; color: var(--muted); font-size: .92rem; }
+    section { padding: 88px 0; }
+    .section-head { display: grid; grid-template-columns: .65fr 1.35fr; gap: 48px; margin-bottom: 34px; }
+    .section-head h2 { margin: 0; font: 700 clamp(2.1rem, 4vw, 3.7rem)/1.05 Georgia, serif; letter-spacing: -.035em; }
+    .section-head p { margin: 4px 0 0; color: var(--muted); font-size: 1.08rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { min-height: 220px; padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+    .card .num { color: var(--gold); font-weight: 850; }
+    .card h3 { margin: 40px 0 10px; font-size: 1.18rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; align-items: stretch; }
+    .step { position: relative; padding: 22px 18px; border-radius: 18px; background: var(--ink); color: white; }
+    .step:not(:last-child)::after { content: "→"; position: absolute; right: -12px; top: 50%; z-index: 2; color: var(--gold); font-size: 1.35rem; transform: translateY(-50%); }
+    .step small { display: block; margin-bottom: 18px; color: #a9c7bd; font-weight: 800; letter-spacing: .1em; }
+    .boundary { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border: 1px solid var(--line); border-radius: 28px; }
+    .boundary > div { padding: 36px; }
+    .boundary .public { background: var(--mint); }
+    .boundary .private { color: white; background: var(--blue); }
+    .boundary h3 { margin-top: 0; font: 700 1.65rem/1.2 Georgia, serif; }
+    .boundary ul { margin: 18px 0 0; padding-left: 20px; }
+    .cta { padding: 54px; border-radius: 30px; color: white; background: var(--ink); }
+    .cta h2 { max-width: 760px; margin: 0; font: 700 clamp(2.25rem, 5vw, 4.4rem)/1.02 Georgia, serif; letter-spacing: -.04em; }
+    .cta p { max-width: 720px; color: #bed0ca; }
+    .cta .button { border-color: white; background: white; color: var(--ink); }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 34px 0 46px; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 820px) {
+      .hero, .section-head, .boundary { grid-template-columns: 1fr; }
+      .hero { gap: 38px; padding-top: 40px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .grid { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -19px; transform: translateX(50%); }
+      .cta { padding: 34px 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Grace Du · AI / Automation Project</div>
+      <a class="nav-link" href="https://github.com/jingxian-grace-du/ai-assisted-language-learning-system">GitHub Repository ↗</a>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <div>
+          <div class="eyebrow">Privacy-first · Human-in-the-loop · Traceable</div>
+          <h1>AI-Assisted Language Learning System</h1>
+          <p class="lead">A governed workflow for turning selected everyday English reflections into traceable learning targets, structured notebooks and reviewed Anki material—without publishing private learner content.</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/jingxian-grace-du/ai-assisted-language-learning-system">View source on GitHub <span>↗</span></a>
+            <a class="button secondary" href="https://github.com/jingxian-grace-du/ai-assisted-language-learning-system#system-architecture">Explore architecture</a>
+          </div>
+        </div>
+        <aside class="status">
+          <div class="label">Current release</div>
+          <h2>v0.1.0-alpha</h2>
+          <p>One private end-to-end Shadow Mode cycle has completed. The repository demonstrates the governed protocol and structural runtime; production autonomy is not claimed.</p>
+        </aside>
+      </header>
+
+      <div class="metrics" aria-label="Project evidence">
+        <div class="metric"><strong>60</strong><span>stable requirements</span></div>
+        <div class="metric"><strong>25</strong><span>JSON Schemas</span></div>
+        <div class="metric"><strong>16</strong><span>passing standard-library tests</span></div>
+        <div class="metric"><strong>1</strong><span>private end-to-end pilot cycle</span></div>
+      </div>
+
+      <section>
+        <div class="section-head">
+          <h2>What the system demonstrates</h2>
+          <p>The project treats language learning as an auditable product workflow: requirements are explicit, data contracts are testable, state transitions are controlled and ambiguous outputs are routed to human review.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><span class="num">01</span><h3>Workflow design</h3><p>Translates an ambiguous learning process into requirements, schemas, state transitions and quality gates.</p></article>
+          <article class="card"><span class="num">02</span><h3>Privacy by design</h3><p>Separates public engineering evidence from private diaries, conversations, notebooks and Anki collections.</p></article>
+          <article class="card"><span class="num">03</span#�ƃ3�6Ɩ'&FVB&Wf�Ws���3���W6W2g&��V�&VF�7F���2���V��v��B6��&�6���W'&�"6�76W2�BW�Ɩ6�B&�f�&F�W"F��V�7W�'FVB67W&7�6���2������'F�6�S���F�c���6V7F���ࠢ�6V7F�����F�b6�73�'6V7F���ֆVB#�ƃ#�v�fW&�VB�V&��rf��s���#���V6�7FvR&W6W'fW2&�fV��6R�B��W2V�6W'F��G�f�6�&�R�WF��F���7W�'G2F�R�V&�W#��BF�W2��B6��V�Fǒ&W�6R�V���VFvV�V�B������F�c��F�b6�73�&f��r#��F�b6�73�'7FW#��6������6�����&�&Vf�V7F�����F�c��F�b6�73�'7FW#��6����#��6����F��2&V6��7G'V7F�����F�c��F�b6�73�'7FW#��6����3��6�����V&��r�F&vWB6V�V7F�����F�c��F�b6�73�'7FW#��6����C��6����VƗG�vFW2�B&Wf�Ws��F�c��F�b6�73�'7FW#��6����S��6����&V6��6��VB涒�FW&����F�c���F�c���6V7F���ࠢ�6V7F�����F�b6�73�'6V7F���ֆVB#�ƃ#���R7�7FV��Gv�&�V�F&�W3���#���F�RV&Ɩ2&W�6�F�'���W2V�v��VW&��rFV6�6���2��7V7F&�Rv�F��WBW��6��rF�R6��FV�BF�Bv�fW2F�R�V&��r�FW&���G2W'6���&V�Wf�6R������F�c��F�b6�73�&&�V�F'�#��F�b6�73�'V&Ɩ2#�ƃ3�V&Ɩ2V�v��VW&��rWf�FV�6S���3��V���Ɠ�&WV�&V�V�G2�B&�F�6����Ɠ��Ɠ�66�V��FVf��VBFF6��G&7G3��Ɠ��Ɠ��F���4Ē�BfƖFF�'3��Ɠ��Ɠ�7��F�WF�2f��GW&W2�BFW7G3��Ɠ��Ɠ�&�f7��6fRvw&VvFRf��F��w3��Ɠ���V����F�c��F�b6�73�'&�fFR#�ƃ3�&�fFR�V&�W"v�&�76S���3��V���Ɠ��&�F�'�6��fW'6F���3��Ɠ��Ɠ�6���WFR6�W&6R&6��fS��Ɠ��Ɠ���V��B7F&�R��FV&���3��Ɠ��Ɠ�涒6���V7F���2�BW��'G3��Ɠ��Ɠ�W'6���&Wf�Wr��7F�'���Ɠ���V����F�c���F�c���6V7F���ࠢ�6V7F�����F�b6�73�&7F#�ƃ#��7V7BF�R&�F�6���&6��FV7GW&R�BfƖFF���Wf�FV�6R����#���F�R&W�6�F�'�6��F��2F�R7�7FV�7V6�f�6F���2�7G'V7GW&�F��Ɩ�r�B&�f7��6fR���V�V�FF���Wf�FV�6R&V���BF��2W�W&��V�F��V&��rv�&�f��r�����F�b6�73�&7F���2#��6�73�&'WGF��"�&Vc�&�GG3���v�F�V"�6������w����w&6R�GR���76�7FVB���wVvR��V&��r�7�7FV�#��V�F�Rv�D�V"&W�6�F�'�(is�����F�c���F�c���6V7F���������ࠢ�f��FW#��7��FW6�v�VB�BFWfV��VB'�w&6RGS��7���7��W�W&��V�F�&��V7B+r##c��7����f��FW#���F�c���&�G�����F���
