@@ -1,8 +1,9 @@
 # Raw Material Processing Specification v0.1
 
 - Status: Experimental draft
-- Pilot clarification: 0.1.3 (coverage floor, lexical citation forms, contrast
-  routing, and single-card Cloze enforcement)
+- Pilot clarification: 0.1.5 (coverage floor, reciprocal omission scan,
+  lexical citation forms, function-based phrase routing, and single-card Cloze
+  enforcement)
 - Protocol relationship: Phase 2 extension candidate
 - Export authority: None
 - Automatic Anki import: Prohibited
@@ -306,6 +307,17 @@ second event's meaning. If a Front places an outcome before its cause, or the
 Back omits a material transition needed to reconstruct the logic, the unit
 fails RM-6 and triggers a same-class scan of all Topic Retell units.
 
+Topic Retell can itself provide strong learning and active retrieval through
+Feynman-style reconstruction of a complete discourse. Do not require a paired
+note merely because the Retell Back contains an exact expression that the
+learner wants to remember. Add a separate Vocabulary or Context Cloze unit only
+when it performs a distinct approved function, such as synonym distinction,
+usage-boundary contrast, focused local retrieval, or remediation of a later
+demonstrated retrieval failure. For an AI Supplementary expression with no
+distinct lexical function, prefer natural integration into Topic Retell or a
+contextual Cloze over isolated Vocabulary memorisation. Keep this routing rule
+experimental until more independent cycles provide evidence.
+
 ### Gate RM-7 — First notebook candidate
 
 Produce:
@@ -377,29 +389,72 @@ synthetic tests may enter the public project.
 
 The manual notebook is the calibration authority for the learner's mandatory
 selected content and learning functions, subject to explicit source-fidelity
-checks. It defines a 100% coverage floor, not an exclusive whitelist. It cannot
+checks. It defines a 100% coverage floor, not an exclusive whitelist. Human
+review may itself omit, mis-bound, or misclassify a useful target. It cannot
 authorise a meaning that contradicts the immutable source without a recorded
 learner correction.
 
-Source-supported prediction targets not marked in the manual notebook remain
-AI Supplementary candidates pending focused learner review. Manual silence is
-not a rejection. Keep mandatory-gold coverage and supplementary review in
-separate registers during audit; the provenance distinction may be removed from
-the visible Anki card after approval while remaining in private audit metadata.
+Source-supported targets not marked in the manual notebook remain AI
+Supplementary candidates pending focused learner review. They may originate in
+the frozen prediction or in the reciprocal omission scan defined below.
+Manual silence is not a rejection. Keep mandatory-gold coverage and supplementary
+review in separate registers during audit; the provenance distinction may be
+removed from the visible Anki card after approval while remaining in private
+audit metadata.
 
-### 6.1 Alignment unit
+### 6.1 Reciprocal omission scan
+
+After Manual Gold is source-verified, scan the complete authoritative source in
+both directions:
+
+1. confirm that every valid manual mark is represented;
+2. inspect unmarked learner wording questions, retrieval failures, semantic
+   inversions, recurrent errors, corrections, and high-value assistant
+   suggestions for possible omissions from both Manual Gold and the frozen
+   prediction;
+3. scan the learner's later reuse to distinguish an unresolved learning need
+   from an expression already used accurately and independently;
+4. compare each proposed addition with the approved notebook to decide whether
+   it needs a standalone note, a usage or synonym distinction, enrichment of an
+   existing note, or rejection as duplicate burden.
+
+The scan is not permission to harvest all polished assistant language.
+Assistant-only phrasing, transcript uncertainty, semantic drift, low reuse
+value, generic paraphrase, and already-mastered language are exclusion signals.
+Rank evidence in this order:
+
+1. direct learner error, wording question, retrieval failure, or semantic
+   inversion;
+2. assistant proposal followed by learner acceptance or accurate reuse;
+3. repeated source-faithful assistant proposal that resolves a demonstrated
+   learner need;
+4. assistant-only stylistic improvement with no demonstrated learner need.
+
+Items in levels 1–3 may be recommended after fidelity, boundary,
+de-duplication, usefulness, and independent-retrievability checks. Level 4 is
+normally rejected or deferred. Every item remains approval-gated and does not
+enter the final notebook or Anki before explicit learner approval.
+
+If the scan indicates that a manual mark itself may be wrong, create a
+`Manual-Gold Review Alert`; do not silently delete or rewrite the mandatory
+target. Only an explicit learner resolution may correct the gold record.
+
+### 6.2 Alignment unit
 
 Align prediction and gold standard through source spans and semantic target
 identity, not display card numbers. One predicted unit may map to multiple gold
 units or the reverse.
 
-### 6.2 Selection outcomes
+### 6.3 Selection outcomes
 
 - True positive: predicted and retained by the gold standard.
 - AI Supplementary — Pending Review: predicted, not manually marked, and not yet
   explicitly accepted or rejected.
-- Accepted AI Supplement: prediction-only target approved after evidence,
-  fidelity, de-duplication, usefulness, and retrievability review.
+- Accepted AI Supplement: unmarked source-supported target approved after
+  evidence, fidelity, de-duplication, usefulness, and retrievability review.
+- Manual-Gold Review Alert: a source-linked warning that a mandatory manual
+  target may contain an error, omission, boundary problem, or function problem;
+  it does not change the gold record before learner resolution.
 - False positive: predicted and explicitly rejected by the learner or rejected
   by a documented evidence, fidelity, value, boundary, retrievability, or
   duplication failure; absence from manual marks alone is insufficient.
@@ -411,7 +466,7 @@ units or the reverse.
 - Duplicate burden: target is covered but creates unnecessary repeated review.
 - Topic-boundary error: content is incorrectly split, merged, or assigned.
 
-### 6.3 Metrics
+### 6.4 Metrics
 
 Report separately:
 
@@ -419,6 +474,9 @@ Report separately:
 - target-selection precision and recall;
 - Manual Gold mandatory-coverage recall;
 - AI Supplementary proposed, accepted, rejected, and unresolved counts;
+- AI Supplementary origin counts for frozen-prediction and reciprocal-scan
+  discoveries;
+- Manual-Gold Review Alert proposed and resolved counts;
 - semantic-fidelity failure count;
 - target-boundary error count;
 - learning-function accuracy;

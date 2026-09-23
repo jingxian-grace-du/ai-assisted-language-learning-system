@@ -89,6 +89,23 @@ class FoundationTests(unittest.TestCase):
                 self.assertIn("AI Supplementary", text)
                 self.assertIn("Manual silence", text)
 
+    def test_reciprocal_omission_scan_is_approval_gated(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+        ]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            normalised = " ".join(text.split())
+            with self.subTest(path=path.name):
+                self.assertIn("reciprocal omission scan", normalised)
+                self.assertIn("semantic inversion", normalised)
+                self.assertIn("later", normalised)
+                self.assertIn("reuse", normalised)
+                self.assertIn("Manual-Gold Review Alert", normalised)
+                self.assertIn("does not enter", normalised)
+
     def test_synonym_contrast_and_single_card_cloze_rules_are_consistent(self) -> None:
         paths = [
             ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
@@ -146,6 +163,33 @@ class FoundationTests(unittest.TestCase):
                 self.assertIn("causality", text)
                 self.assertIn("event identity", text)
                 self.assertIn("intervening event", text)
+
+    def test_topic_retell_does_not_force_a_paired_phrase_card(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt",
+        ]
+        for path in paths:
+            normalised = " ".join(path.read_text(encoding="utf-8").split())
+            with self.subTest(path=path.name):
+                self.assertIn("Feynman-style", normalised)
+                self.assertIn("Do not", normalised)
+                self.assertIn("paired note", normalised)
+                self.assertIn("distinct approved function", normalised)
+                self.assertIn("contextual Cloze", normalised)
+
+    def test_chatgpt_handoff_excludes_post_bundle_gold_processing(self) -> None:
+        path = (
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt"
+        )
+        normalised = " ".join(path.read_text(encoding="utf-8").split())
+        self.assertIn("perform the reciprocal omission scan", normalised)
+        self.assertIn("Those are Codex post-handoff steps", normalised)
+        self.assertIn("stop the ChatGPT Shadow Mode processing stage", normalised)
 
 
 if __name__ == "__main__":

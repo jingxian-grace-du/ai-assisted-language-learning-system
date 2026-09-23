@@ -93,7 +93,7 @@ The first Phase 2 engineering slice is also available:
 - opaque-target gold comparison for selection, boundary, function, and Note Type;
 - structural calibration-report generation;
 - content-free synthetic conformance fixtures;
-- 22 passing standard-library tests.
+- 25 passing standard-library tests.
 
 Semantic target generation and topic-boundary adjudication remain governed
 Codex review steps rather than deterministic automation. The runtime now
@@ -103,8 +103,9 @@ validates the artefacts and cross-links produced by that review.
 
 Two private Shadow Mode cycles have now completed the frozen-prediction handoff,
 manual-gold comparison, RM-8/RM-9 calibration, stable Protocol v3.5
-finalisation, Anki reconciliation, and learner review of the rendered cards.
-The private source and all learning content remain outside this repository.
+finalisation, Anki reconciliation, and learner visual review, including the
+later reciprocal-scan additions. The private source and all learning content
+remain outside this repository.
 
 The cycle exposed substantial first-draft selection and boundary differences,
 so it does not justify production automation or reduced review. It also exposed
@@ -129,3 +130,12 @@ Cloze now requires a fully visible Chinese Prompt, while Topic Retell requires
 explicit chronology, causality, and event-identity comparison against the
 approved notebook. The affected private notes were corrected in place without
 changing collection counts; no private content entered the repository.
+
+A later reciprocal omission scan established that Manual Gold is a mandatory
+coverage floor but may itself miss or misclassify a useful target. All
+source-supported discoveries remain separately reviewable and approval-gated;
+a possible human error creates a Manual-Gold Review Alert rather than an
+automatic rewrite. The same cycle also established a provisional
+function-based routing rule: Topic Retell already provides strong Feynman-style
+retrieval, so an exact phrase does not require a paired card unless another Note
+Type serves a distinct learning function.

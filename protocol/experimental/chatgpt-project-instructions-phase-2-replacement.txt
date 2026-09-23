@@ -1,3 +1,5 @@
+PROJECT INSTRUCTIONS REVISION: Phase 2 Shadow Mode sync 2026-09-23
+
 This private Project runs the English Oral Diary learning system.  The uploaded current files control the workflow.
 
 AUTHORITY AND REQUIRED PROJECT SOURCES
@@ -103,10 +105,12 @@ bundle in the public GitHub repository.
 After a structurally valid Pilot Bundle has been produced, stop the ChatGPT
 Shadow Mode processing stage. Do not request the learner's manual notebook, run
 RM-8 or RM-9, compare against manual gold, generate a Manual-Gold Ledger, create
-a calibration report, or propose Protocol changes. Tell the learner to hand the
-frozen Pilot Bundle, complete source-chat references and later independent
-manual notebook to the private Codex runtime. Do not treat Project memory or a
-summary as a substitute for the complete source chats.
+a calibration report, perform the reciprocal omission scan, create
+Manual-Gold Review Alerts, or propose Protocol changes. Those are Codex
+post-handoff steps. Tell the learner to hand the frozen Pilot Bundle, complete
+source-chat references and later independent manual notebook to the private
+Codex runtime. Do not treat Project memory or a summary as a substitute for the
+complete source chats.
 
 When I say:
 
@@ -160,6 +164,16 @@ GENERAL NIGHT AND MORNING BEHAVIOUR
   Retell Front and Back. Do not merge similar events when an intervening event
   changes the meaning or logical position of the later event. One sequence or
   causality failure requires a same-class scan of all Topic Retell units.
+- Treat Topic Retell as a strong Feynman-style learning and retrieval task. Do
+  not create a paired note in Vocabulary or Context Cloze merely because an
+  exact expression appears in the Retell Back. Add another unit only when it
+  serves a distinct approved function such as synonym distinction,
+  usage-boundary contrast, focused local retrieval, or remediation of a later
+  demonstrated retrieval failure. For an AI-supplementary expression without
+  a distinct lexical function, prefer natural Topic Retell integration or
+  contextual Cloze over isolated Vocabulary memorisation. This routing rule
+  remains experimental and does not remove the later Codex review and
+  learner-approval gates.
 
 OUTPUT AND ACTION TRUTHFULNESS
 

@@ -22,8 +22,12 @@ used to improve the historical prediction.
 - Five prediction-only targets were routed to focused AI Supplementary review.
 - All five supplements were accepted after evidence, usefulness,
   de-duplication, retrieval-boundary, and source-fidelity review.
-- The final stable output contained 26 notes: 10 Context Cloze, 5 Topic Retell,
-  11 Vocabulary, and 0 Guidance.
+- A later reciprocal omission scan proposed six additional source-supported
+  targets. All six were accepted after focused learner review, without changing
+  the frozen historical prediction.
+- The final stable output contained 32 notes: 10 Context Cloze, 5 Topic Retell,
+  17 Vocabulary, and 0 Guidance. One existing Topic Retell note was also updated
+  in place to integrate an approved expression naturally.
 - Initial structural reconciliation found 26 notes and 26 generated cards, with
   no field, tag, deck, duplicate, template, or per-note card-count mismatch.
   Later learner visual review identified semantic card-design errors that those
@@ -56,12 +60,23 @@ therefore reported separately.
 6. Topic Retell validation must compare chronology, causality, and event
    identity against the approved notebook. Template validity and broad topic
    coverage cannot detect a misplaced event or an omitted material transition.
+7. Manual Gold needs a reciprocal omission scan after source verification.
+   Human review is a mandatory coverage floor but may itself omit or misclassify
+   a useful source-supported target. Discoveries remain separately
+   approval-gated, and possible human errors create a review alert rather than
+   an automatic gold rewrite.
+8. Topic Retell is itself a strong Feynman-style retrieval task. An exact phrase
+   in its Back does not automatically require a paired card. Additional
+   Vocabulary or Context Cloze is justified only by a distinct function such as
+   synonym distinction, usage boundary, focused local retrieval, or later
+   demonstrated failure. This routing policy remains provisional.
 
 ## Decision
 
-The second private cycle is complete, but production automation remains
-blocked. Two cycles show that the governed private workflow can reach a
-verified final import, while target selection, target boundaries, function
-assignment, supplementary review, and card-design checks still require human
-judgement. Further independent cycles are required before any review threshold
-can be relaxed.
+The learner visually confirmed the last six added notes and the one updated
+Topic Retell note after structural reconciliation. The second private cycle is
+therefore complete. Production automation remains blocked. Two cycles show that
+the governed private workflow can reach a verified final import, while target
+selection, target boundaries, function assignment, supplementary review, and
+card-design checks still require human judgement. Further independent cycles
+are required before any review threshold can be relaxed.

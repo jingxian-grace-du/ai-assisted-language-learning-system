@@ -38,12 +38,21 @@ source fidelity, usefulness, de-duplication, retrieval boundary, and evidence.
 Their provenance remains in the private audit trail but need not appear on the
 final Anki card.
 
+After Manual Gold is verified, a reciprocal omission scan also searches the
+complete source for high-value targets missed by both the human notebook and the
+frozen prediction. Direct learner errors, wording questions, retrieval failures,
+semantic inversions, and later reuse carry more weight than polished
+assistant-only language. Every discovery is separately reviewable; none is
+silently promoted. A possible human error creates a Manual-Gold Review Alert
+rather than an automatic rewrite of the gold record.
+
 ## What the system learns
 
 The comparison distinguishes:
 
 - topic-boundary preferences;
 - selected and rejected learning targets;
+- reciprocal omissions and demonstrated mastery;
 - unfamiliar vocabulary versus complete-expression targets;
 - Guidance selection;
 - target boundaries;
@@ -53,6 +62,8 @@ The comparison distinguishes:
 - expected versus generated Cloze card counts;
 - complete visible Chinese Context Cloze prompts;
 - Topic Retell chronology, causality, and event identity;
+- function-based routing of an exact phrase between Topic Retell, contextual
+  Cloze, and Vocabulary without automatic paired-card creation;
 - semantic-fidelity failures;
 - unnecessary review burden.
 

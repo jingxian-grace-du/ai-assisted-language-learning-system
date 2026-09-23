@@ -187,6 +187,11 @@ Anki reconciliation. The next research and engineering priority is the front of
 the pipeline: reliably turning unstructured oral-diary material into a
 high-quality first notebook draft.
 
+Protocol v3.5 remains the current stable governing baseline. The separately
+named Protocol v3.6-draft Shadow Mode Profile is an experimental Phase 2 overlay,
+not a promoted stable replacement. Both remain in force within their stated
+scopes until an explicit promotion decision creates a stable v3.6 release.
+
 No production automation is claimed yet.
 
 Phase 2 currently separates the ChatGPT diary runtime from the Codex calibration

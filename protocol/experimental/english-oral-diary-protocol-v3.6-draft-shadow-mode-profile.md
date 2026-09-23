@@ -9,8 +9,9 @@
 - Intended environment: Private ChatGPT Project with project-only memory
 - Automatic Anki export or import: Prohibited
 - Promotion status: Not a stable Protocol release
-- Pilot clarification: 0.1.3 (coverage floor, lexical citation forms, contrast
-  routing, and single-card Cloze enforcement)
+- Pilot clarification: 0.1.5 (coverage floor, reciprocal omission scan,
+  lexical citation forms, function-based phrase routing, and single-card Cloze
+  enforcement)
 
 ## 1. Purpose
 
@@ -465,6 +466,7 @@ Use only:
 - Duplicate Burden;
 - Topic-Boundary Error;
 - Manual-Gold Source Conflict;
+- Manual-Gold Review Alert;
 - AI Supplementary — Pending Review;
 - Accepted AI Supplement;
 - Unresolved Ambiguity.
@@ -478,11 +480,14 @@ specification disposition.
 The manual notebook controls the learner's mandatory selected content and
 intended learning functions after source-fidelity verification. Every valid
 manual mark is a mandatory coverage floor target: it must be represented in the
-reviewed notebook unless the learner explicitly approves its exclusion. The manual
-notebook is not an exclusive whitelist. Manual silence does not reject a
-source-supported AI target.
+reviewed notebook unless the learner explicitly approves its exclusion. The
+manual notebook is not an exclusive whitelist or an assumption of human
+infallibility. Manual silence does not reject a source-supported AI target, and
+a source-linked warning may identify a possible manual error without silently
+overriding the learner.
 
-An unmarked predicted target must first be routed to `AI Supplementary —
+An unmarked source-supported target, whether found in the frozen prediction or
+the reciprocal omission scan, must first be routed to `AI Supplementary —
 Pending Review`. It may be recommended only when it is source-faithful,
 non-duplicative, independently retrievable, useful for the learner, and
 supported by the evidence hierarchy. The review notebook must visibly
@@ -501,6 +506,32 @@ The manual notebook does not silently authorise a factual or semantic claim
 contradicted by the immutable source. Such a case is `Manual-Gold Source
 Conflict` and requires explicit learner resolution.
 
+#### 10.6.1 Reciprocal omission scan
+
+After source-fidelity verification, Codex must scan the complete source for
+useful targets omitted by Manual Gold and by the frozen prediction. The scan
+must consider direct wording questions, retrieval failures, semantic
+inversions, recurrent learner errors, explicit corrections, later accurate
+reuse, and source-faithful assistant suggestions. It must then compare each
+candidate with the approved notebook and route it to one of four outcomes:
+standalone note, usage or synonym distinction, enrichment of an existing note,
+or rejection as duplicate or low-value burden.
+
+Do not treat assistant fluency as learning evidence by itself. Give greatest
+weight to a direct learner error or request; next to an assistant proposal that
+the learner accepts or later reuses; next to a repeated source-faithful proposal
+that resolves a demonstrated gap. Assistant-only stylistic improvements are
+normally deferred or rejected. Transcript uncertainty, learner correction of
+the assistant, semantic drift, active mastery, and lack of independent
+retrievability are exclusion signals.
+
+Every reciprocal-scan discovery enters `AI Supplementary — Pending Review`
+with its origin, evidence tier, proposed learning function, overlap analysis,
+and recommendation. It does not enter the final notebook or Anki until the
+learner approves it. If the source indicates that a manual target may itself be
+wrong, create a `Manual-Gold Review Alert` and preserve the current gold record
+until the learner resolves the alert.
+
 ### 10.7 Manual-gold ledger materialisation
 
 Codex produces one private JSON object conforming to
@@ -516,10 +547,12 @@ spans and record a manual-selection reason. Preserve unresolved source
 conflicts rather than treating them as approved gold.
 
 Keep AI Supplementary proposals outside the Manual-Gold Ledger. Record them in
-a separate supplementary review register linked to their prediction candidate,
-source spans, evidence, recommendation, learner decision, and final destination
-note. Manual-Gold coverage metrics and supplementary acceptance metrics must be
-reported separately.
+a separate supplementary review register linked to their source spans and,
+when one exists, their prediction candidate. Also record whether each proposal
+originated in the frozen prediction or the reciprocal omission scan, its
+evidence tier, recommendation, learner decision, and final destination note.
+Manual-Gold coverage metrics, Manual-Gold Review Alerts, and supplementary
+acceptance metrics must be reported separately.
 
 The ledger contains no raw diary transcript and uses private-learning-data
 metadata with `repository_allowed: false`. The ledger, source archive, manual
@@ -570,6 +603,16 @@ and event identity from the approved notebook. Do not aggregate similar events
 when an intervening event changes the meaning or position of the later event.
 One sequence, causality, or material-transition failure triggers a same-class
 scan of all Topic Retell units.
+
+Topic Retell is itself a strong learning and retrieval mechanism because the
+learner reconstructs the complete discourse in a Feynman-style retell. Do not
+force a paired note merely because an exact expression appears in the Back. Add
+Vocabulary or Context Cloze only for a distinct approved function such as
+synonym distinction, usage boundary, focused local retrieval, or a later
+demonstrated retrieval failure. When an AI Supplementary expression has no such
+function, prefer natural Topic Retell integration or contextual Cloze learning
+over isolated Vocabulary memorisation. Treat this routing policy as provisional
+until further cycles provide evidence.
 
 ## 11. Specification update
 
@@ -646,9 +689,10 @@ One successful pilot may revise the draft. It does not establish general
 reliability or authorise automatic Anki import.
 
 For later pilots, additionally report Manual Gold coverage-floor recall, AI
-Supplementary proposed/accepted/rejected/unresolved counts, citation-form
-corrections, synonym-contrast routing corrections, and unintended Cloze card
-expansion. Also report Chinese-Prompt answer-removal errors and Topic Retell
-sequence or causality corrections found during learner visual review. Multiple
-successful cycles still do not authorise automatic Anki import without explicit
-promotion evidence.
+Supplementary proposed/accepted/rejected/unresolved counts split by frozen-
+prediction and reciprocal-scan origin, Manual-Gold Review Alert counts,
+citation-form corrections, synonym-contrast routing corrections, and unintended
+Cloze card expansion. Also report Chinese-Prompt answer-removal errors and Topic
+Retell sequence or causality corrections found during learner visual review.
+Multiple successful cycles still do not authorise automatic Anki import without
+explicit promotion evidence.

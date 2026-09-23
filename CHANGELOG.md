@@ -11,6 +11,11 @@ calibration design remains experimental.
 
 - treated independent Manual Gold as a mandatory coverage floor rather than an
   exclusive whitelist and added a separate AI Supplementary review route;
+- added a reciprocal omission scan for useful source-supported targets missed
+  by both Manual Gold and the frozen prediction, with learner approval required
+  before promotion;
+- added Manual-Gold Review Alerts for possible human errors without silently
+  rewriting the gold record;
 - normalised standalone Vocabulary verbs and phrasal verbs to
   context-independent citation forms;
 - introduced explicit `Type::SynonymContrast` routing for accepted expressions
@@ -22,6 +27,11 @@ calibration design remains experimental.
   visible while only the English targets are clozed;
 - added chronology, causality, and event-identity validation for Topic Retell
   Front and Back content;
+- recognised Topic Retell as a strong Feynman-style retrieval task and blocked
+  automatic paired-card creation unless another Note Type serves a distinct
+  learning function;
+- recorded learner visual confirmation and formal completion of the second
+  private Shadow Mode cycle;
 - added a privacy-safe aggregate report from the second completed private
   Shadow Mode cycle.
 
