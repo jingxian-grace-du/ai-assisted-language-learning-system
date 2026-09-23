@@ -93,7 +93,7 @@ The first Phase 2 engineering slice is also available:
 - opaque-target gold comparison for selection, boundary, function, and Note Type;
 - structural calibration-report generation;
 - content-free synthetic conformance fixtures;
-- 25 passing standard-library tests.
+- 26 passing standard-library tests.
 
 Semantic target generation and topic-boundary adjudication remain governed
 Codex review steps rather than deterministic automation. The runtime now

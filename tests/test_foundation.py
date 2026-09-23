@@ -191,6 +191,14 @@ class FoundationTests(unittest.TestCase):
         self.assertIn("Those are Codex post-handoff steps", normalised)
         self.assertIn("stop the ChatGPT Shadow Mode processing stage", normalised)
 
+    def test_chatgpt_project_instructions_fit_character_limit(self) -> None:
+        path = (
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt"
+        )
+        text = path.read_text(encoding="utf-8")
+        self.assertLessEqual(len(text), 8000)
+
 
 if __name__ == "__main__":
     unittest.main()

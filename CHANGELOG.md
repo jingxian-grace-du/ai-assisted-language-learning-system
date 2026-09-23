@@ -32,6 +32,8 @@ calibration design remains experimental.
   learning function;
 - recorded learner visual confirmation and formal completion of the second
   private Shadow Mode cycle;
+- compacted the replacement ChatGPT Project Instructions below the 8,000-character
+  product limit and added a regression check for that limit;
 - added a privacy-safe aggregate report from the second completed private
   Shadow Mode cycle.
 
