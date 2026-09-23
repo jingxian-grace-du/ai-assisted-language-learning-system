@@ -1,7 +1,8 @@
 # Raw Material Processing Specification v0.1
 
 - Status: Experimental draft
-- Pilot clarification: 0.1.1 (post-cycle card-design enforcement)
+- Pilot clarification: 0.1.3 (coverage floor, lexical citation forms, contrast
+  routing, and single-card Cloze enforcement)
 - Protocol relationship: Phase 2 extension candidate
 - Export authority: None
 - Automatic Anki import: Prohibited
@@ -259,6 +260,29 @@ Record why the selected Note Type is preferable and why plausible alternatives
 were rejected. Apply the existing paired-note, Vocabulary-answerability, and
 Guidance-alignment requirements.
 
+For Vocabulary headwords and phrasal-verb answers, use the context-independent
+citation form rather than copying an incidental tense from the source. Use the
+base form for verbs and phrasal verbs (`connect`, `hold back`), the natural
+singular citation form for count nouns, and parallel grammatical forms in a
+synonym set. Preserve the actually observed inflected form in the example or
+source evidence. Keep the inflected form as the answer only when tense, aspect,
+voice, participial use, or a fixed expression is itself the approved learning
+target.
+
+When several accepted expressions overlap but differ by register, setting,
+institution, relationship, or pragmatic effect, do not flatten them into an
+unqualified synonym list. Create an independently answerable usage-boundary or
+synonym-contrast unit and propose the `Type::SynonymContrast` tag. State the
+shared meaning, the boundary for each expression, and at least one natural-use
+contrast. The tag classifies the retrieval task; it does not replace the
+ordinary `Topic::*` tag or create a fifth Note Type.
+
+For a Context Cloze reasoning unit intended to be retrieved as one card, assign
+every approved blank the same `c1` index. Use `c2` or a later index only when a
+card is intentionally separate and the learner has approved that
+split. Before export, count the generated cards per note and treat an
+unintended multi-card expansion as a Card-Design gate failure.
+
 For every Topic Retell Front, construct a concise Chinese logical skeleton of
 the complete Back rather than a broad topic label. Do not repeat the Note Type
 or add an instruction label such as `Retell` or `复述`; the card template already
@@ -286,6 +310,11 @@ Before RM-7 passes, audit every Topic Retell Front for redundant task labels,
 logical-stage coverage, relationship markers, translation leakage, and
 alignment with the complete Back. One failure triggers a same-class scan of all
 Topic Retell Fronts in the candidate.
+
+Also audit every proposed Vocabulary answer for citation-form normalisation and
+every proposed synonym set for missing usage boundaries. These checks operate
+on the frozen prediction; later learner corrections remain post-RM-8 evidence
+and must not be backfilled into the historical prediction.
 
 ### Gate RM-8 — Shadow comparison
 
@@ -327,10 +356,17 @@ synthetic tests may enter the public project.
 
 ## 6. Gold-standard comparison model
 
-The manual notebook is the calibration authority for the learner's selected
-content and learning functions, subject to explicit source-fidelity checks. It
-cannot authorise a meaning that contradicts the immutable source without a
-recorded learner correction.
+The manual notebook is the calibration authority for the learner's mandatory
+selected content and learning functions, subject to explicit source-fidelity
+checks. It defines a 100% coverage floor, not an exclusive whitelist. It cannot
+authorise a meaning that contradicts the immutable source without a recorded
+learner correction.
+
+Source-supported prediction targets not marked in the manual notebook remain
+AI Supplementary candidates pending focused learner review. Manual silence is
+not a rejection. Keep mandatory-gold coverage and supplementary review in
+separate registers during audit; the provenance distinction may be removed from
+the visible Anki card after approval while remaining in private audit metadata.
 
 ### 6.1 Alignment unit
 
@@ -341,7 +377,13 @@ units or the reverse.
 ### 6.2 Selection outcomes
 
 - True positive: predicted and retained by the gold standard.
-- False positive: predicted but intentionally absent from the gold standard.
+- AI Supplementary — Pending Review: predicted, not manually marked, and not yet
+  explicitly accepted or rejected.
+- Accepted AI Supplement: prediction-only target approved after evidence,
+  fidelity, de-duplication, usefulness, and retrievability review.
+- False positive: predicted and explicitly rejected by the learner or rejected
+  by a documented evidence, fidelity, value, boundary, retrievability, or
+  duplication failure; absence from manual marks alone is insufficient.
 - False negative: omitted by prediction but added by the gold standard.
 - Partial target: underlying target is correct but scope is too broad or narrow.
 - Semantic drift: output changes the authoritative meaning.
@@ -356,6 +398,8 @@ Report separately:
 
 - topic-boundary precision and recall;
 - target-selection precision and recall;
+- Manual Gold mandatory-coverage recall;
+- AI Supplementary proposed, accepted, rejected, and unresolved counts;
 - semantic-fidelity failure count;
 - target-boundary error count;
 - learning-function accuracy;

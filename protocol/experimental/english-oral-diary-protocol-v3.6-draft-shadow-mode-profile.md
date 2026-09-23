@@ -9,7 +9,8 @@
 - Intended environment: Private ChatGPT Project with project-only memory
 - Automatic Anki export or import: Prohibited
 - Promotion status: Not a stable Protocol release
-- Pilot clarification: 0.1.1 (Topic Retell Front enforcement)
+- Pilot clarification: 0.1.3 (coverage floor, lexical citation forms, contrast
+  routing, and single-card Cloze enforcement)
 
 ## 1. Purpose
 
@@ -464,18 +465,41 @@ Use only:
 - Duplicate Burden;
 - Topic-Boundary Error;
 - Manual-Gold Source Conflict;
+- AI Supplementary — Pending Review;
+- Accepted AI Supplement;
 - Unresolved Ambiguity.
 
 For every material difference, record the predicted decision, gold decision,
 source spans, correction, same-class scan, existing rule coverage, and proposed
 specification disposition.
 
-### 10.6 Manual notebook authority
+### 10.6 Manual notebook authority and coverage floor
 
-The manual notebook controls the learner's selected content and intended
-learning functions after source-fidelity verification. It does not silently
-authorise a factual or semantic claim contradicted by the immutable source. Such
-a case is `Manual-Gold Source Conflict` and requires explicit learner resolution.
+The manual notebook controls the learner's mandatory selected content and
+intended learning functions after source-fidelity verification. Every valid
+manual mark is a mandatory coverage floor target: it must be represented in the
+reviewed notebook unless the learner explicitly approves its exclusion. The manual
+notebook is not an exclusive whitelist. Manual silence does not reject a
+source-supported AI target.
+
+An unmarked predicted target must first be routed to `AI Supplementary —
+Pending Review`. It may be recommended only when it is source-faithful,
+non-duplicative, independently retrievable, useful for the learner, and
+supported by the evidence hierarchy. The review notebook must visibly
+distinguish mandatory Manual Gold coverage from AI Supplementary proposals and
+record the evidence and recommendation. After learner approval, the provenance
+class remains in the private audit ledger but need not appear on the Anki card.
+
+Absence from the manual marks alone is not a False Positive. Classify the item
+as False Positive or rejected only after explicit learner rejection or a
+documented failure of source fidelity, learning value, target boundary,
+independent retrievability, or semantic de-duplication. An approved proposal is
+`Accepted AI Supplement` and joins the final notebook without weakening the
+100% Manual Gold coverage gate.
+
+The manual notebook does not silently authorise a factual or semantic claim
+contradicted by the immutable source. Such a case is `Manual-Gold Source
+Conflict` and requires explicit learner resolution.
 
 ### 10.7 Manual-gold ledger materialisation
 
@@ -490,6 +514,12 @@ manual-only target. Do not force two records to share a key merely because
 their wording is similar. Every selected gold candidate must link to source
 spans and record a manual-selection reason. Preserve unresolved source
 conflicts rather than treating them as approved gold.
+
+Keep AI Supplementary proposals outside the Manual-Gold Ledger. Record them in
+a separate supplementary review register linked to their prediction candidate,
+source spans, evidence, recommendation, learner decision, and final destination
+note. Manual-Gold coverage metrics and supplementary acceptance metrics must be
+reported separately.
 
 The ledger contains no raw diary transcript and uses private-learning-data
 metadata with `repository_allowed: false`. The ledger, source archive, manual
@@ -509,6 +539,25 @@ corrected notebook and re-enters Protocol v3.5, Codex must also retain any
 card-design, rendering, import, reconciliation, and live-review corrections in
 the post-cycle learning record. A correction made after RM-8 is not evidence
 that the original prediction passed that criterion.
+
+Prediction-only targets remain pending supplements until reviewed. RM-8 must
+not reduce selection precision merely because the independent manual notebook
+did not mark them. Report Manual Gold recall, boundary and function accuracy
+separately from AI Supplementary proposed, accepted, rejected, and unresolved
+counts.
+
+For later stable-path card construction, normalise standalone Vocabulary verbs
+and phrasal verbs to context-independent citation forms while retaining source
+inflection in examples or evidence. Route accepted near-synonyms whose use
+depends on register, setting, institution, relationship, or pragmatic effect to
+an independently answerable usage-boundary unit tagged
+`Type::SynonymContrast`. The tag supplements, rather than replaces, a
+first-level `Topic::*` tag.
+
+For every stable Context Cloze note intended as one retrieval card, use `c1`
+for all approved blanks. A later cloze number is allowed only for an
+intentionally separate, learner-approved card. The Card-Design and Render gates
+must reconcile expected and generated cards per note before import.
 
 ## 11. Specification update
 
@@ -583,3 +632,9 @@ At the end of the first pilot, report:
 
 One successful pilot may revise the draft. It does not establish general
 reliability or authorise automatic Anki import.
+
+For later pilots, additionally report Manual Gold coverage-floor recall, AI
+Supplementary proposed/accepted/rejected/unresolved counts, citation-form
+corrections, synonym-contrast routing corrections, and unintended Cloze card
+expansion. Multiple successful cycles still do not authorise automatic Anki
+import without explicit promotion evidence.

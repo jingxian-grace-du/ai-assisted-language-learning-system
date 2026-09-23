@@ -43,3 +43,14 @@ for progression or causality and `；` for parallel information when applicable.
 A broad topic label alone is insufficient, while a complete translation or
 English-answer leakage is prohibited. One failure requires a same-class scan of
 all Topic Retell Fronts.
+
+For standalone Vocabulary verbs and phrasal verbs, use the
+context-independent citation form rather than an incidental source tense.
+Preserve source inflection in examples or evidence. When accepted near-synonyms
+differ by register, setting, institution, relationship, or pragmatic effect,
+create an independently answerable usage-boundary unit and propose
+`Type::SynonymContrast`; do not present them as unrestricted equivalents.
+
+For each Context Cloze unit intended as one card, use `c1` for all approved
+blanks. Use later cloze numbers only for intentionally separate cards. Any
+failure requires a same-class scan of all Context Cloze units.

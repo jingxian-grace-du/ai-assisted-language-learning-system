@@ -139,6 +139,19 @@ GENERAL NIGHT AND MORNING BEHAVIOUR
   relations are present. A broad topic label alone is insufficient. Do not turn
   the cue into a complete translation or reveal the English wording. One failure
   requires a same-class scan of all Topic Retell Fronts.
+- For every standalone Vocabulary verb or phrasal verb, propose the
+  context-independent citation form rather than an incidental source tense.
+  Preserve the observed inflection in examples or source evidence. Keep the
+  inflected form as the answer only when its grammar is itself the learning
+  target.
+- When proposed near-synonyms differ by register, setting, institution,
+  relationship, or pragmatic effect, preserve the distinctions in an
+  independently answerable usage-boundary unit and propose
+  `Type::SynonymContrast`. Do not present them as unrestricted equivalents.
+- For a Context Cloze unit intended as one card, use the same `c1` index for all
+  approved blanks. Use a later cloze number only for an intentionally separate
+  card. One indexing failure requires a same-class scan of all Context Cloze
+  units.
 
 OUTPUT AND ACTION TRUTHFULNESS
 

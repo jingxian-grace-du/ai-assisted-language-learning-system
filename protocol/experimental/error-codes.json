@@ -8,7 +8,7 @@
     {"code": "RM-TOPIC-OVERMERGE", "stage": "RM-1", "severity": "review", "meaning": "Distinct substantive topics were merged."},
     {"code": "RM-TOPIC-OVERSPLIT", "stage": "RM-1", "severity": "review", "meaning": "One coherent topic was split without sufficient evidence."},
     {"code": "RM-SIGNAL-UNSUPPORTED", "stage": "RM-2", "severity": "review", "meaning": "A learning signal lacks a resolvable source reference."},
-    {"code": "RM-TARGET-FALSE-POSITIVE", "stage": "RM-8", "severity": "calibrate", "meaning": "The system selected a target absent from the approved gold decision."},
+    {"code": "RM-TARGET-FALSE-POSITIVE", "stage": "RM-8", "severity": "calibrate", "meaning": "The system selected a target explicitly rejected by the learner or rejected for a documented evidence, fidelity, value, boundary, retrievability, or duplication failure; absence from manual marks alone is insufficient."},
     {"code": "RM-TARGET-FALSE-NEGATIVE", "stage": "RM-8", "severity": "calibrate", "meaning": "The system omitted a target present in the approved gold decision."},
     {"code": "RM-TARGET-PARTIAL", "stage": "RM-8", "severity": "review", "meaning": "The target identity is correct but its retrieval boundary is incomplete or over-expanded."},
     {"code": "RM-SEMANTIC-DRIFT", "stage": "RM-5", "severity": "block", "meaning": "Generated content changes the authoritative source meaning."},

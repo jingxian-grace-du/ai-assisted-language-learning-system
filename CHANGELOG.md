@@ -5,6 +5,29 @@ All notable public changes to this project are documented here.
 The project uses pre-release version labels while the Phase 2 generation and
 calibration design remains experimental.
 
+## Unreleased
+
+### Calibrated
+
+- treated independent Manual Gold as a mandatory coverage floor rather than an
+  exclusive whitelist and added a separate AI Supplementary review route;
+- normalised standalone Vocabulary verbs and phrasal verbs to
+  context-independent citation forms;
+- introduced explicit `Type::SynonymContrast` routing for accepted expressions
+  whose use differs by register, setting, institution, relationship, or
+  pragmatic effect;
+- enforced one-card Context Cloze indexing with shared `c1` blanks unless a
+  separate card is intentionally approved;
+- added a privacy-safe aggregate report from the second completed private
+  Shadow Mode cycle.
+
+### Safety boundaries
+
+- preserved the frozen historical prediction and pre-clarification comparison;
+- kept all source-bearing cycle artefacts, notebook content, Anki records, and
+  collection backups outside the public repository;
+- retained mandatory human review and explicit approval before Anki import.
+
 ## v0.1.0-alpha — 2026-09-17
 
 ### Added

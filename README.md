@@ -25,8 +25,8 @@ independently prepared manual-gold reference.
   review rather than hiding it behind automatic output.
 - **Public engineering evidence:** 60 stable requirements, 25 JSON Schemas, a
   Python structural CLI, privacy and linkage validators, calibration reports,
-  and 16 passing standard-library tests.
-- **Pilot evidence:** one private end-to-end Shadow Mode cycle completed through
+  and 20 passing standard-library tests.
+- **Pilot evidence:** two private end-to-end Shadow Mode cycles completed through
   manual-gold comparison, reviewed notebook finalisation, Anki reconciliation,
   and learner review. Only non-reconstructive aggregate findings are public.
 - **Current boundary:** semantic topic reconstruction and learning-target
@@ -71,7 +71,7 @@ flowchart LR
         REQUIREMENTS["60 stable<br/>requirements"]
         SCHEMAS["25 JSON<br/>Schemas"]
         TOOLING["Python CLI,<br/>validators and gates"]
-        TESTS["16 standard-library<br/>tests"]
+        TESTS["20 standard-library<br/>tests"]
         DELTA["Privacy-safe<br/>protocol delta"]
     end
 
@@ -196,11 +196,13 @@ manual-gold handoff contracts, content-free status reporting, RM-8 comparison,
 and RM-9 calibration reports. It does not yet generate learning targets or
 deterministically evaluate diary semantics.
 
-A first private end-to-end Shadow Mode cycle has completed through stable Anki
-reconciliation and learner card review. Its content remains outside this
-repository. The result is calibration evidence only: it identified substantial
-first-draft selection differences and strengthened Topic Retell cue enforcement,
-but it does not establish production readiness or authorise automatic import.
+Two private end-to-end Shadow Mode cycles have completed through stable Anki
+reconciliation and learner card review. Their content remains outside this
+repository. The results are calibration evidence only: they identified
+substantial first-draft selection differences and strengthened Topic Retell,
+Manual-Gold coverage, lexical citation-form, synonym-contrast, and Context
+Cloze card-count controls, but they do not establish production readiness or
+authorise automatic import.
 
 ## Documentation
 
@@ -217,6 +219,7 @@ but it does not establish production readiness or authorise automatic import.
 - [Phase 2 calibration workflow](docs/phase-2-calibration-workflow.md)
 - [Phase 2 pilot runtime](docs/phase-2-pilot-runtime.md)
 - [Phase 2 Pilot 1 aggregate findings](docs/phase-2-pilot-1-findings.md)
+- [Phase 2 Pilot 2 aggregate findings](docs/phase-2-pilot-2-findings.md)
 - [Experimental Raw Material Processing Specification v0.1](protocol/experimental/raw-material-processing-spec-v0.1.md)
 - [Protocol v3.6-draft Shadow Mode Profile](protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md)
 - [Phase 2 Interchange Contract v0.1](protocol/experimental/phase-2-interchange-contract-v0.1.md)

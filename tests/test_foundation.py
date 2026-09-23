@@ -58,6 +58,63 @@ class FoundationTests(unittest.TestCase):
                 self.assertIn("复述", text)
                 self.assertIn("same-class scan", text)
 
+    def test_vocabulary_answers_use_context_independent_citation_forms(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt",
+        ]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.name):
+                self.assertIn("context-independent", text)
+                self.assertIn("citation form", text)
+        specification = paths[0].read_text(encoding="utf-8")
+        self.assertIn("`connect`, `hold back`", specification)
+        self.assertIn("inflected form in the example", specification)
+
+    def test_manual_gold_is_a_coverage_floor_not_an_exclusive_whitelist(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+        ]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.name):
+                self.assertIn("coverage floor", text)
+                self.assertIn("exclusive whitelist", text)
+                self.assertIn("AI Supplementary", text)
+                self.assertIn("Manual silence", text)
+
+    def test_synonym_contrast_and_single_card_cloze_rules_are_consistent(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt",
+        ]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.name):
+                self.assertIn("Type::SynonymContrast", text)
+                self.assertIn("c1", text)
+                self.assertIn("intentionally separate", text)
+
+    def test_false_positive_requires_more_than_manual_silence(self) -> None:
+        catalogue = json.loads(
+            (ROOT / "protocol/experimental/error-codes.json").read_text(encoding="utf-8")
+        )
+        code = next(
+            item for item in catalogue["codes"]
+            if item["code"] == "RM-TARGET-FALSE-POSITIVE"
+        )
+        self.assertIn("explicitly rejected", code["meaning"])
+        self.assertIn("absence from manual marks alone is insufficient", code["meaning"])
+
 
 if __name__ == "__main__":
     unittest.main()

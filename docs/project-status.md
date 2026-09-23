@@ -45,7 +45,7 @@ profiles. Normative and operational backlogs are both zero.
   deterministic production automation;
 - automatic target selection and direct Experimental Candidate import into Anki
   remain blocked;
-- the first private full-cycle pilot is calibration evidence only and does not
+- two private full-cycle pilots are calibration evidence only and do not
   justify reduced human review;
 - further independent Shadow Mode cycles are required before any production
   threshold or autonomy claim is considered.
@@ -93,15 +93,15 @@ The first Phase 2 engineering slice is also available:
 - opaque-target gold comparison for selection, boundary, function, and Note Type;
 - structural calibration-report generation;
 - content-free synthetic conformance fixtures;
-- 16 passing standard-library tests.
+- 20 passing standard-library tests.
 
 Semantic target generation and topic-boundary adjudication remain governed
 Codex review steps rather than deterministic automation. The runtime now
 validates the artefacts and cross-links produced by that review.
 
-## First private full-cycle evidence
+## Private full-cycle evidence
 
-One private Shadow Mode cycle has now completed the frozen-prediction handoff,
+Two private Shadow Mode cycles have now completed the frozen-prediction handoff,
 manual-gold comparison, RM-8/RM-9 calibration, stable Protocol v3.5
 finalisation, Anki reconciliation, and learner review of the rendered cards.
 The private source and all learning content remain outside this repository.
@@ -114,3 +114,11 @@ causality, and parallel-relationship markers where applicable. The
 experimental specification, Shadow Mode profile, and Project Instructions now
 state this rule consistently. Further independent cycles are required before
 any review threshold may be relaxed.
+
+The second cycle established three additional reusable controls: Manual Gold is
+a 100% coverage floor rather than an exclusive whitelist; standalone
+Vocabulary answers use context-independent citation forms; and accepted
+near-synonyms with meaningful usage differences require explicit
+`Type::SynonymContrast` routing. It also added a single-card Context Cloze
+invariant: related blanks use `c1`, and generated card counts must match the
+approved note design before import.

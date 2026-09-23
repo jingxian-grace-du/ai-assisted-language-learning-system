@@ -30,6 +30,14 @@ the notebook in the normal way. The system converts those edits into structured
 differences and asks a question only when source evidence and existing authority
 cannot resolve a material ambiguity.
 
+The manual notebook defines mandatory coverage, not an exclusive whitelist.
+Every valid manual mark must be represented unless the learner explicitly
+approves exclusion. Prediction-only targets remain in a separate AI
+Supplementary review queue until the learner accepts or rejects them against
+source fidelity, usefulness, de-duplication, retrieval boundary, and evidence.
+Their provenance remains in the private audit trail but need not appear on the
+final Anki card.
+
 ## What the system learns
 
 The comparison distinguishes:
@@ -40,6 +48,9 @@ The comparison distinguishes:
 - Guidance selection;
 - target boundaries;
 - Note Type choices;
+- citation-form normalisation;
+- synonym and usage-boundary routing;
+- expected versus generated Cloze card counts;
 - semantic-fidelity failures;
 - unnecessary review burden.
 
