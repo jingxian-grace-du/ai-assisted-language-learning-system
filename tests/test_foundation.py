@@ -115,6 +115,38 @@ class FoundationTests(unittest.TestCase):
         self.assertIn("explicitly rejected", code["meaning"])
         self.assertIn("absence from manual marks alone is insufficient", code["meaning"])
 
+    def test_context_cloze_chinese_prompt_remains_fully_visible(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt",
+        ]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.name):
+                self.assertIn("Chinese Prompt", text)
+                self.assertIn("fully visible", text)
+                self.assertIn("numbered blanks", text)
+                self.assertIn("approved English targets", text)
+
+    def test_topic_retell_preserves_sequence_and_causality(self) -> None:
+        paths = [
+            ROOT / "protocol/experimental/raw-material-processing-spec-v0.1.md",
+            ROOT
+            / "protocol/experimental/english-oral-diary-protocol-v3.6-draft-shadow-mode-profile.md",
+            ROOT
+            / "protocol/experimental/chatgpt-project-instructions-phase-2-replacement.txt",
+        ]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.name):
+                self.assertIn("chronology", text)
+                self.assertIn("causality", text)
+                self.assertIn("event identity", text)
+                self.assertIn("intervening event", text)
+
 
 if __name__ == "__main__":
     unittest.main()

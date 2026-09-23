@@ -283,6 +283,13 @@ card is intentionally separate and the learner has approved that
 split. Before export, count the generated cards per note and treat an
 unintended multi-card expansion as a Card-Design gate failure.
 
+In a bilingual Context Cloze note, apply Cloze markup only to approved English targets.
+The Chinese Prompt remains fully visible as a complete
+translation or meaning cue. It must not contain numbered blanks, underscores,
+hidden Chinese target positions, or parallel answer-removal markup. Removing
+the Chinese answer positions changes the retrieval task and fails the
+Card-Design gate even when the English cloze boundaries are correct.
+
 For every Topic Retell Front, construct a concise Chinese logical skeleton of
 the complete Back rather than a broad topic label. Do not repeat the Note Type
 or add an instruction label such as `Retell` or `复述`; the card template already
@@ -291,6 +298,13 @@ for parallel information when those relations are present. The cue must cover
 the answer's material reasoning stages without becoming a complete translation
 or revealing the English wording. A broad-topic-only cue fails RM-6 even when
 the Back itself is correct.
+
+The Topic Retell Front and Back must preserve material chronology, causality,
+and event identity from the approved notebook. Do not collapse two similar but
+distinct events into an aggregate step when an intervening event determines the
+second event's meaning. If a Front places an outcome before its cause, or the
+Back omits a material transition needed to reconstruct the logic, the unit
+fails RM-6 and triggers a same-class scan of all Topic Retell units.
 
 ### Gate RM-7 — First notebook candidate
 
@@ -315,6 +329,11 @@ Also audit every proposed Vocabulary answer for citation-form normalisation and
 every proposed synonym set for missing usage boundaries. These checks operate
 on the frozen prediction; later learner corrections remain post-RM-8 evidence
 and must not be backfilled into the historical prediction.
+
+Audit every Context Cloze Chinese Prompt for prohibited answer removal, and
+compare every Topic Retell Front and Back against the approved event sequence.
+Passing template rendering alone is not evidence that either semantic design
+check passed.
 
 ### Gate RM-8 — Shadow comparison
 

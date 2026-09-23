@@ -51,6 +51,8 @@ The comparison distinguishes:
 - citation-form normalisation;
 - synonym and usage-boundary routing;
 - expected versus generated Cloze card counts;
+- complete visible Chinese Context Cloze prompts;
+- Topic Retell chronology, causality, and event identity;
 - semantic-fidelity failures;
 - unnecessary review burden.
 

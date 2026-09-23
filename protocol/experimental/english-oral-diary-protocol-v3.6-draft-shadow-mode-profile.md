@@ -559,6 +559,18 @@ for all approved blanks. A later cloze number is allowed only for an
 intentionally separate, learner-approved card. The Card-Design and Render gates
 must reconcile expected and generated cards per note before import.
 
+Apply Cloze markup only to approved English targets. The Chinese Prompt must
+remain fully visible as a complete translation or meaning cue; numbered blanks,
+underscores, hidden target positions, and equivalent Chinese answer-removal
+markup are prohibited. The Card-Design gate must check this independently of
+English cloze-boundary and template-render validation.
+
+Every Topic Retell Front and Back must preserve material chronology, causality,
+and event identity from the approved notebook. Do not aggregate similar events
+when an intervening event changes the meaning or position of the later event.
+One sequence, causality, or material-transition failure triggers a same-class
+scan of all Topic Retell units.
+
 ## 11. Specification update
 
 After comparison, classify each proposed change as:
@@ -636,5 +648,7 @@ reliability or authorise automatic Anki import.
 For later pilots, additionally report Manual Gold coverage-floor recall, AI
 Supplementary proposed/accepted/rejected/unresolved counts, citation-form
 corrections, synonym-contrast routing corrections, and unintended Cloze card
-expansion. Multiple successful cycles still do not authorise automatic Anki
-import without explicit promotion evidence.
+expansion. Also report Chinese-Prompt answer-removal errors and Topic Retell
+sequence or causality corrections found during learner visual review. Multiple
+successful cycles still do not authorise automatic Anki import without explicit
+promotion evidence.

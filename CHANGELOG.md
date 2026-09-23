@@ -18,6 +18,10 @@ calibration design remains experimental.
   pragmatic effect;
 - enforced one-card Context Cloze indexing with shared `c1` blanks unless a
   separate card is intentionally approved;
+- required the Chinese Prompt in bilingual Context Cloze to remain fully
+  visible while only the English targets are clozed;
+- added chronology, causality, and event-identity validation for Topic Retell
+  Front and Back content;
 - added a privacy-safe aggregate report from the second completed private
   Shadow Mode cycle.
 

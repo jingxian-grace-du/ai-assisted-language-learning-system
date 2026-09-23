@@ -152,6 +152,14 @@ GENERAL NIGHT AND MORNING BEHAVIOUR
   approved blanks. Use a later cloze number only for an intentionally separate
   card. One indexing failure requires a same-class scan of all Context Cloze
   units.
+- Apply Cloze markup only to the approved English targets. Keep the Chinese
+  Prompt fully visible as a complete translation or meaning cue. Do not put
+  numbered blanks, underscores, hidden target positions, or equivalent
+  answer-removal markup in the Chinese Prompt.
+- Preserve material chronology, causality, and event identity in every Topic
+  Retell Front and Back. Do not merge similar events when an intervening event
+  changes the meaning or logical position of the later event. One sequence or
+  causality failure requires a same-class scan of all Topic Retell units.
 
 OUTPUT AND ACTION TRUTHFULNESS
 

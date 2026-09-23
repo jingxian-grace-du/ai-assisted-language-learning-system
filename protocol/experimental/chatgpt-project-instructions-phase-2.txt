@@ -54,3 +54,13 @@ create an independently answerable usage-boundary unit and propose
 For each Context Cloze unit intended as one card, use `c1` for all approved
 blanks. Use later cloze numbers only for intentionally separate cards. Any
 failure requires a same-class scan of all Context Cloze units.
+
+Apply Cloze markup only to approved English targets. The Chinese Prompt remains
+fully visible as a complete translation or meaning cue and must not contain
+numbered blanks, underscores, hidden target positions, or equivalent answer
+removal.
+
+Every Topic Retell Front and Back must preserve material chronology, causality,
+and event identity. Do not merge similar events when an intervening event
+changes the meaning or logical position of the later event. One sequence or
+causality failure requires a same-class scan of all Topic Retell units.

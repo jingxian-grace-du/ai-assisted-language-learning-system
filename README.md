@@ -25,7 +25,7 @@ independently prepared manual-gold reference.
   review rather than hiding it behind automatic output.
 - **Public engineering evidence:** 60 stable requirements, 25 JSON Schemas, a
   Python structural CLI, privacy and linkage validators, calibration reports,
-  and 20 passing standard-library tests.
+  and 22 passing standard-library tests.
 - **Pilot evidence:** two private end-to-end Shadow Mode cycles completed through
   manual-gold comparison, reviewed notebook finalisation, Anki reconciliation,
   and learner review. Only non-reconstructive aggregate findings are public.
@@ -71,7 +71,7 @@ flowchart LR
         REQUIREMENTS["60 stable<br/>requirements"]
         SCHEMAS["25 JSON<br/>Schemas"]
         TOOLING["Python CLI,<br/>validators and gates"]
-        TESTS["20 standard-library<br/>tests"]
+        TESTS["22 standard-library<br/>tests"]
         DELTA["Privacy-safe<br/>protocol delta"]
     end
 

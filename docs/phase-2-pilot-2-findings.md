@@ -24,8 +24,11 @@ used to improve the historical prediction.
   de-duplication, retrieval-boundary, and source-fidelity review.
 - The final stable output contained 26 notes: 10 Context Cloze, 5 Topic Retell,
   11 Vocabulary, and 0 Guidance.
-- Import reconciliation found 26 notes and 26 generated cards, with no field,
-  tag, deck, duplicate, rendering, or per-note card-count mismatch.
+- Initial structural reconciliation found 26 notes and 26 generated cards, with
+  no field, tag, deck, duplicate, template, or per-note card-count mismatch.
+  Later learner visual review identified semantic card-design errors that those
+  structural checks could not detect. Eleven existing notes were corrected in
+  place; the note and card counts remained unchanged.
 
 The original structural comparator treated manual silence as rejection. That
 made all five prediction-only targets appear to be false positives. The
@@ -47,6 +50,12 @@ therefore reported separately.
 4. All blanks in a Context Cloze unit intended as one card use `c1`. Later
    cloze indices require an intentional, learner-approved split, and generated
    card counts must be reconciled before import.
+5. In bilingual Context Cloze, only the English target positions are removed.
+   The Chinese Prompt remains a complete visible meaning cue; mirroring the
+   English blanks in Chinese changes the retrieval task and is a design error.
+6. Topic Retell validation must compare chronology, causality, and event
+   identity against the approved notebook. Template validity and broad topic
+   coverage cannot detect a misplaced event or an omitted material transition.
 
 ## Decision
 

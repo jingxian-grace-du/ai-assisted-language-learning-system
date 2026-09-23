@@ -93,7 +93,7 @@ The first Phase 2 engineering slice is also available:
 - opaque-target gold comparison for selection, boundary, function, and Note Type;
 - structural calibration-report generation;
 - content-free synthetic conformance fixtures;
-- 20 passing standard-library tests.
+- 22 passing standard-library tests.
 
 Semantic target generation and topic-boundary adjudication remain governed
 Codex review steps rather than deterministic automation. The runtime now
@@ -122,3 +122,10 @@ near-synonyms with meaningful usage differences require explicit
 `Type::SynonymContrast` routing. It also added a single-card Context Cloze
 invariant: related blanks use `c1`, and generated card counts must match the
 approved note design before import.
+
+Learner visual review after the second import also demonstrated that structural
+render checks are insufficient for semantic card design. Bilingual Context
+Cloze now requires a fully visible Chinese Prompt, while Topic Retell requires
+explicit chronology, causality, and event-identity comparison against the
+approved notebook. The affected private notes were corrected in place without
+changing collection counts; no private content entered the repository.
